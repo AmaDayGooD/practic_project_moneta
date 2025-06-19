@@ -13,9 +13,9 @@
     "stylelint": "stylelint src/**/**/*.css --allow-empty-input",
     "stylelint:fix": "stylelint src/**/**/*.css --allow-empty-input --fix",
     "lint": "npm run eslint && npm run prettier && npm run stylelint"
-  
   },
   "dependencies": {
+    "eslint-config-prettier": "^10.1.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
