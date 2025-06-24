@@ -1,0 +1,153 @@
+* {
+    font-family: "Wix Madefor Display", sans-serif;
+    color: #181818;
+}
+
+button, .pseudo-button {
+    height: 40px;
+    width: 134px;
+    font-weight: 500;
+    border: transparent;
+    background: #0080C8;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+    display: grid;
+    place-items: center;
+}
+
+button.light {
+    height: 40px;
+    width: 134px;
+    border: 2px solid transparent;
+    background: #0080C81A;
+    border-radius: 10px;
+    color: #0080C8;
+}
+
+button:hover {
+    filter: brightness(130%);
+}
+
+body {
+    margin: 0;
+    background: #F4F6F8;
+}
+
+main {
+    margin: 40px 80px;
+}
+
+header {
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.menu_items {
+    display: flex;
+    gap: 40px;
+}
+
+.menu_items a {
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.menu_items a:hover {
+    color: #0080c8;
+}
+
+header .menu_buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.hero {
+    width: 100%;
+}
+
+.tab label {
+    display: inline-block;
+    margin: 0;
+}
+
+.tab > input[type="radio"] {
+    display: none;
+}
+
+.tab-content {
+    display: none;
+}
+
+#tab-btn-1:checked~#about-company,
+#tab-btn-2:checked~#vacancies {
+    display: block;
+}
+
+.pseudo-button {
+    background-color: #0080C81A;
+    color: #0080C8;
+}
+
+#tab-btn-1:checked + label .pseudo-button,
+#tab-btn-2:checked + label .pseudo-button {
+    background-color: #0080c8;
+    color: #ffffff;
+}
+.tab-btn-2 + label.pseudo-button {
+    border-color: red;
+}
+
+
+#about-company h1 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 120%;
+    margin: 20px 0 0;
+}
+#about-company p {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 140%;
+    margin: 20px 0 0;
+}
+
+.advantages {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.advantage-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    width: 305px;
+    height: 198px;
+    gap: 10px;
+    border-radius: 34px;
+    padding: 20px;
+}
+
+.advantage-item span {
+    font-weight: 600;
+    font-size: 82px;
+    line-height: 105%;
+    text-align: center;
+}
+.advantage-item p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    text-align: center;
+    max-width: 12vw;
+}
