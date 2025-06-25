@@ -813,6 +813,14 @@ main p {
     transition: all 0.3s ease;
 }
 
+.btn-about-company {
+    border-radius: 24px 0 0 24px;
+}
+
+.btn-vacancies {
+    border-radius: 0 24px 24px 0;
+}
+
 #selected_vacancy:target ~ .tab_content {
     display: none;
 }
