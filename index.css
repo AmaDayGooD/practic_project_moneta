@@ -74,51 +74,6 @@ header .menu_btns {
     width: 100%;
 }
 
-
-.tab label {
-    display: inline-block;
-    margin: 0;
-}
-
-.tab > input[type="radio"] {
-    display: none;
-}
-
-.tab-content {
-    display: none;
-}
-
-#tab-btn-1:checked ~ #about-company,
-#tab-btn-2:checked ~ #vacancies {
-    display: block;
-}
-
-.pseudo-btn {
-    background-color: #0080C81A;
-    color: #0080C8;
-}
-
-#btn-1 {
-    border-radius: 10px 0 0 10px;
-}
-
-#btn-2 {
-    border-radius: 0 10px 10px 0;
-}
-
-#btn-1:hover,
-#btn-2:hover {
-    border: 2px solid #F6BC25;
-    transition: border 0.5s;
-}
-
-#tab-btn-1:checked + label .pseudo-btn,
-#tab-btn-2:checked + label .pseudo-btn {
-    background-color: #0080c8;
-    color: #ffffff;
-}
-
-
 main h1 {
     font-weight: 600;
     font-size: 48px;
@@ -697,7 +652,7 @@ main p {
     line-height: 22px;
 }
 
-.send_cv, .sent_cv {
+.send_cv, .sent_cv, .already_sent_cv {
     visibility: hidden;
     opacity: 0;
     position: fixed;
@@ -728,7 +683,7 @@ main p {
     flex-grow: 1;
 }
 
-.sent_cv {
+.sent_cv, .already_sent_cv {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -755,19 +710,22 @@ main p {
     height: 24px;
 }
 
-.sent_cv img {
+.sent_cv img,
+.already_sent_cv img {
     width: 100px;
     height: 100px;
 }
 
-.sent_cv h1 {
+.sent_cv h1,
+.already_sent_cv h2 {
     font-weight: 700;
     font-size: 36px;
     line-height: 42px;
     text-align: center;
 }
 
-.sent_cv span {
+.sent_cv span,
+.already_sent_cv span {
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
@@ -790,6 +748,11 @@ main p {
     opacity: 1;
 }
 
+.overlay:target + .already_sent_cv {
+    visibility: visible;
+    opacity: 1;
+}
+
 .overlay-close-area {
     position: absolute;
     inset: 0;
@@ -806,6 +769,52 @@ main p {
     opacity: 0;
     transition: all 0.3s ease;
     z-index: 999;
+}
+
+
+/*Navigation*/
+
+.tab_content {
+    display: flex;
+    flex-direction: row;
+}
+
+#about-company {
+    display: none;
+}
+
+#vacancies {
+    display: none;
+}
+
+#selected_vacancy {
+    display: none;
+}
+
+#about-company:target {
+    display: block;
+    opacity: 1;
+}
+
+#vacancies:target {
+    display: block;
+    opacity: 1;
+}
+
+#selected_vacancy:target {
+    display: block;
+    opacity: 1;
+}
+
+.tab_button button {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+#selected_vacancy:target ~ .tab_content {
+    display: none;
 }
 
 /*Footer*/
