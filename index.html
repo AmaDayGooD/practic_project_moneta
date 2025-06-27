@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap" rel="stylesheet">
 
+  <script src="src/index.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Вакансии</title>
 </head>
@@ -18,15 +19,19 @@
 <header>
   <img src="src/assets/icons/ic_moneta_full_blue_logo.svg" alt="Logo">
   <nav class="menu_items">
-    <a href="#">Бизнесу</a>
-    <a href="#">Физлицам</a>
-    <a href="#">Документация</a>
-    <a href="#">О нас</a>
-    <a href="#">Контакты</a>
+    <a href="https://payanyway.ru/info/w/ru/public/welcome.htm">Бизнесу</a>
+    <a href="https://www.moneta.ru/info/d/ru/public/users/tariffs.htm">Физлицам</a>
+    <a href="https://docs.moneta.ru/">Документация</a>
+    <a href="https://www.moneta.ru/info/d/ru/public/users/nko.htm">О нас</a>
+    <a href="https://www.moneta.ru/info/d/ru/public/about/contacts.htm">Контакты</a>
   </nav>
-  <div class="menu_btns">
-    <button type="button" class="light">Вход</button>
-    <button type="button">Регистрация</button>
+  <div class="menu_btn">
+    <a href="https://www.moneta.ru/login.htm">
+      <button type="button" class="light">Вход</button>
+    </a>
+    <a href="https://www.moneta.ru/register.htm">
+      <button type="button">Регистрация</button>
+    </a>
   </div>
 </header>
 
@@ -34,17 +39,13 @@
 <img class="hero" src="src/assets/images/img_hero.png" alt="Pay">
 <main>
   <!--Navigation-->
-  <div class="tab_content">
-    <a href="#about-company">
-      <button class="btn-about-company" type="button">О компании</button>
-    </a>
-    <a href="#vacancies">
-      <button class="btn-vacancies" type="button">Вакансии</button>
-    </a>
+  <div id="tab">
+    <button class="active" id="btn-about-company" type="button" onclick="onClickBtnAboutCompany()">О компании</button>
+    <button id="btn-vacancies" type="button" onclick="onClickBtnVacancy()">Вакансии</button>
   </div>
 
   <!--Tab About company-->
-  <section class="tab-content" id="about-company">
+  <section id="tab-about-company" class="tab-content active">
     <!--What is a Moneta-->
     <section class="about-company">
       <h1>Что такое Монета</h1>
@@ -267,7 +268,7 @@
   </section>
 
   <!--Tab vacancies-->
-  <section class="tab-content" id="vacancies">
+  <section id="tab-vacancies" class="tab-content">
     <section class="our-vacancies">
       <h1>Наши вакансии</h1>
       <nav>
@@ -275,71 +276,7 @@
         <button class="technical_vacancies">Техническое направление</button>
         <button class="back_office_vacancies">Бэкофис и работа с клиентами</button>
       </nav>
-
-      <ul>
-        <li class="vacancies-item">
-          <img src="src/assets/icons/ic_back_office_vacancies.svg" alt="Office vacancies">
-          <h2>Менеджер по продажам</h2>
-          <div>
-            <p>117 000 — 180 000₽</p>
-            <a href="#selected_vacancy">
-              <button>Подробнее</button>
-            </a>
-          </div>
-        </li>
-        <li class="vacancies-item">
-          <img src="src/assets/icons/ic_technical_vacancies.svg" alt="Technical vacancies">
-          <h2>Системный администратор</h2>
-          <div>
-            <p>117 000 — 180 000₽</p>
-            <a href="#selected_vacancy">
-              <button>Подробнее</button>
-            </a>
-          </div>
-        </li>
-        <li class="vacancies-item">
-          <img src="src/assets/icons/ic_technical_vacancies.svg" alt="Technical vacancies">
-          <h2>DevOps инженер (Middle+/ Senior)</h2>
-          <div>
-            <p>117 000 — 180 000₽</p>
-            <a href="#selected_vacancy">
-              <button>Подробнее</button>
-            </a>
-          </div>
-        </li>
-        <li class="vacancies-item">
-          <img src="src/assets/icons/ic_technical_vacancies.svg" alt="Technical vacancies">
-          <h2>Системный администратор</h2>
-          <div>
-            <p>117 000 — 180 000₽</p>
-            <button>Подробнее</button>
-          </div>
-        </li>
-        <li class="vacancies-item">
-          <img src="src/assets/icons/ic_technical_vacancies.svg" alt="Technical vacancies">
-          <h2>Системный администратор</h2>
-          <div>
-            <p>117 000 — 180 000₽</p>
-            <button>Подробнее</button>
-          </div>
-        </li>
-        <li class="vacancies-item">
-          <img src="src/assets/icons/ic_back_office_vacancies.svg" alt="Office vacancies">
-          <h2>Менеджер по продажам</h2>
-          <div>
-            <p>117 000 — 180 000₽</p>
-            <button>Подробнее</button>
-          </div>
-        </li>
-        <li class="vacancies-item">
-          <img src="src/assets/icons/ic_technical_vacancies.svg" alt="Technical vacancies">
-          <h2>Системный администратор</h2>
-          <div>
-            <p>117 000 — 180 000₽</p>
-            <button>Подробнее</button>
-          </div>
-        </li>
-      </ul>
+      <ul class="vacancies-list" id="vacanciesList"></ul>
     </section>
 
     <section class="not-find-vacancies">
@@ -349,119 +286,75 @@
           интересное
           направление</p>
       </div>
-      <form class="form-for-send-cv">
-        <div class="name">
-          <div>
-            <label for="first_name"><span>*</span> Имя</label>
-            <input id="first_name" type="text" placeholder="Иван" required>
-          </div>
-          <div>
-            <label for="last_name"><span>*</span> Фамилия</label>
-            <input id="last_name" type="text" placeholder="Иванов" required>
-          </div>
-        </div>
-        <div class="phone">
-          <label for="phone"><span>*</span> Номер телефона</label>
-          <input id="phone" type="tel" placeholder="+7 (999) 999-99-99" required>
-        </div>
-        <div class="email">
-          <label for="mail"><span>*</span> Почта</label>
-          <input id="mail" type="email" placeholder="ivanovivan@mail.com" required>
-        </div>
-        <div class="resume">
-          <label for="resume_file"><span>*</span> Ссылка на резюме или файл (pdf/doc)</label>
-          <input id="resume_file" type="url" placeholder="ссылка на резюме">
-        </div>
-        <div class="area-to-send-cv">
-          <img src="src/assets/icons/ic_upload_simple.svg" alt="Upload CV">
-          <span>загрузить файл</span>
-          <!-- <input id="send-cv" type="file" accept=".pdf,.doc,.docx" />-->
-        </div>
-        <button type="submit">Отправить</button>
-      </form>
+      <div id="form-send-cv"></div>
     </section>
   </section>
 
   <!--  Tab selected vacancy-->
-  <section class="tab-content" id="selected_vacancy">
+  <section id="selected_vacancy" class="tab-content">
     <section class="title_vacancy">
       <div>
-        <a href="#vacancies">
+        <button onclick="goToListVacancies()">
           <img src="src/assets/icons/ic_left_arrow.svg" alt="Left arrow icon">
-        </a>
+        </button>
         <h1 class="title_vacancy">Системный администратор</h1>
       </div>
-      <a class="open_dialog" href="#send_cv">
-        <button>Откликнуться</button>
-      </a>
+      <button id="btn-respond" onclick="onClickRespond()">Откликнуться</button>
     </section>
-    <section class="info_vacancy">
-      <ul>
-        <li><strong>Заработная плата: </strong><span>от 117 000 до 180 000 ₽ за месяц, на руки</span></li>
-        <li><strong>Опыт работы: </strong><span>3 - 6 лет</span></li>
-        <li><strong>Полная занятость</strong></li>
-        <li><strong>График: </strong><span>5/2</span></li>
-        <li><strong>Рабочие часы: </strong><span>8</span></li>
-      </ul>
-    </section>
-    <section class="requirements_vacancy">
-      <h2>Ожидания от кандидата:</h2>
-      <ul>
-        <li>Знание и понимание принципов работы сетевых протоколов (модель OSI)</li>
-        <li>Опыт настройки сетевого оборудования L2/L3 (Cisco, Huawei, MikroTik, Juniper, Eltex) работа с командной
-          строкой, понимание конфигураций сетевого оборудования
-        </li>
-        <li>Опыт администрирования ОС Linux: основные сервисы, веб-серверы, виртуализация KVM, развертывание приложений
-          в т.ч. в контейнерах, написание несложных скриптов автоматизации bash / python. Плюсом будет опыт работы с
-          отечественными дистрибутивами Linux
-        </li>
-        <li>Опыт администрирования ОС Windows 10/Srv2012+: AD, управление пользователями, настройка политик,
-          централизованное управление антивирусными средствами
-        </li>
-        <li>Опыт администрирования СУБД (предпочтительно PostgreSQL)</li>
-        <li>Большим плюсом будет опыт работы (сопровождение, администрирование, настройка, развертывание) со средствами
-          криптографической защиты информации, банковскими приложениями
-        </li>
-      </ul>
-    </section>
-
-    <section class="offer">
-      <h2>Мы предлагаем:</h2>
-      <ul>
-        <li>Работу в аккредитованной IТ-компании</li>
-        <li>Трудовые отношения по ТК РФ с первого дня, со всем положенным соц. пакетом</li>
-        <li>«Белую» зарплату и локальное повышение оклада без жесткого грейдирования: смотрим на опыт, знания и вклад
-          каждого в команду
-        </li>
-        <li>Формат работы: в офисе, удаленный вариант возможен только в качестве резервного</li>
-        <li>Корпоративный английский</li>
-        <li>ДМС со стоматологией</li>
-      </ul>
-      <p>
-        У нас современный офис с парковкой и всем необходимым для комфортной работы и отдыха в самом сердце Йошкар-Олы.
-        Рядом набережная с прекрасными видами, кучей кафешек, театрами, музеями и быстрой доступностью из любой точки
-        города.
-      </p>
-    </section>
+    <section class="info_vacancy"></section>
+    <section class="requirements_vacancy"></section>
+    <section class="offer"></section>
+    <section class="description_vacancy"></section>
   </section>
 
   <!--  Dialog send CV-->
-  <a href="#" class="overlay" id="send_cv"></a>
-  <div class="send_cv">
+  <dialog id="send_cv"></dialog>
+
+  <!--  Dialog sent CV-->
+  <dialog id="sent_cv">
+    <div class="header-controls">
+      <button onclick="closeAllDialogs()">
+        <img src="src/assets/icons/ic_close.svg" alt="Close dialog">
+      </button>
+    </div>
+    <div class="content">
+      <img src="src/assets/icons/ic_smile_circle.svg" alt="Smile circle">
+      <h1>Отклик отправлен!</h1>
+      <span>HR-менеджер скоро свяжется с вами</span>
+    </div>
+  </dialog>
+
+  <!--  Dialog already sent CV-->
+  <dialog id="already_sent_cv">
+    <div class="header-controls">
+      <button onclick="closeAllDialogs()">
+        <img src="src/assets/icons/ic_close.svg" alt="Close dialog">
+      </button>
+    </div>
+    <div class="content">
+      <img src="src/assets/icons/ic_star_circle.svg" alt="Star circle">
+      <h1>Вы уже откликались на эту вакансию </h1>
+      <span>Повторите попытку позже</span>
+    </div>
+  </dialog>
+</main>
+
+<template id="template_vacancy">
+  <form id="send_cv_form">
     <div class="title">
       <h1>Отклик на вакансию<br>Системный администратор</h1>
-      <a href="#">
+      <button onclick="closeAllDialogs()">
         <img src="src/assets/icons/ic_close.svg" alt="Close dialog">
-      </a>
+      </button>
     </div>
     <div class="name">
       <div>
         <label for="dialog_first_name"><span>*</span> Имя</label>
-        <input id="dialog_first_name" type="text" placeholder="Иван" required>
+        <input id="dialog_first_name" type="text" placeholder="Иван" name="name" required>
       </div>
       <div>
         <label for="dialog_last_name"><span>*</span> Фамилия</label>
-        <input id="dialog_last_name" type="text" placeholder="Иванов" required>
+        <input id="dialog_last_name" type="text" placeholder="Иванов" name="last_name" required>
       </div>
     </div>
     <div class="phone">
@@ -470,55 +363,24 @@
     </div>
     <div class="email">
       <label for="dialog_mail"><span>*</span> Почта</label>
-      <input id="dialog_mail" type="email" placeholder="ivanovivan@mail.com" required>
+      <input id="dialog_mail" type="email" placeholder="ivanovivan@mail.com" name="email" required>
     </div>
     <div class="resume">
       <label for="dialog_resume_file"><span>*</span> Ссылка на резюме или файл (pdf/doc)</label>
-      <input id="dialog_resume_file" type="url" placeholder="ссылка на резюме">
+      <input id="dialog_resume_file" type="url" placeholder="ссылка на резюме" name="cv">
     </div>
     <div class="area-to-send-cv">
       <img src="src/assets/icons/ic_upload_simple.svg" alt="Upload CV">
       <span>загрузить файл</span>
-      <!--<input id="send-cv" type="file" accept=".pdf,.doc,.docx" />-->
+      <!--      <input type="file" id="cv_file_input" name="cv_file" accept=".pdf,.doc,.docx" />-->
     </div>
-    <a href="#sent_cv" class="close-btn">
-      <button type="submit">Отправить</button>
-    </a>
-  </div>
+    <button type="submit">Отправить</button>
+  </form>
+</template>
 
-  <!--  Dialog sent CV-->
-  <a href="#" class="overlay" id="sent_cv"></a>
-  <div class="sent_cv">
-    <div class="header-controls">
-      <a href="#" class="close-btn">
-        <img src="src/assets/icons/ic_close.svg" alt="Close dialog">
-      </a>
-    </div>
-    <div class="content">
-      <img src="src/assets/icons/ic_smile_circle.svg" alt="Smile circle">
-      <h1>Отклик отправлен!</h1>
-      <span>HR-менеджер скоро свяжется с вами</span>
-    </div>
-  </div>
-
-  <!--  Dialog already sent CV-->
-  <a href="#" class="overlay" id="already_sent_cv"></a>
-  <div class="already_sent_cv">
-    <div class="header-controls">
-      <a href="#" class="close-btn">
-        <img src="src/assets/icons/ic_close.svg" alt="Close dialog">
-      </a>
-    </div>
-    <div class="content">
-      <img src="src/assets/icons/ic_star_circle.svg" alt="Star circle">
-      <h1>Вы уже откликались на эту вакансию </h1>
-      <span>Повторите попытку позже</span>
-    </div>
-  </div>
-</main>
 <!--Footer-->
 <footer>
-  <div class="about-company">
+  <div class="footer-about-company">
     <a href="https://www.moneta.ru/">
       <img src="src/assets/icons/ic_moneta_full_blue_logo.svg" alt="logo">
     </a>
