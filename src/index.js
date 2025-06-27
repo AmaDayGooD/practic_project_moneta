@@ -6,8 +6,6 @@ const about_company = document.querySelector("#tab-about-company");
 const vacancies = document.querySelector("#tab-vacancies");
 const selected_vacancy = document.querySelector("#selected_vacancy");
 
-const send_cv = document.querySelector("#send_cv");
-
 function onClickBtnAboutCompany() {
   hideAll();
   about_company.classList.add("active");
