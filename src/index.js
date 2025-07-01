@@ -184,12 +184,12 @@ function setExperience(experience) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  test("form-send-cv");
+  addTemplateForm("form-send-cv");
 });
 
 function onClickRespond() {
   const dialog = document.querySelector("#send_cv");
-  test("send_cv");
+  addTemplateForm("send_cv");
   if (dialog) dialog.showModal();
 }
 
@@ -206,7 +206,7 @@ function handleSubmit(event) {
   openSendModal();
 }
 
-function test(id_container) {
+function addTemplateForm(id_container) {
   const template = document.getElementById("template_vacancy");
   const container = document.getElementById(id_container);
   if (template && container) {
