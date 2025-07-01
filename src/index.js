@@ -1,3 +1,5 @@
+import IMask from "imask";
+
 const tab_btn_container = document.querySelector("#tab");
 const btn_about_company = document.querySelector("#btn-about-company");
 const btn_vacancies = document.querySelector("#btn-vacancies");
@@ -184,7 +186,7 @@ function setExperience(experience) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  addTemplateForm("form-send-cv");
+  addTemplateForm("container_send_cv");
 });
 
 function onClickRespond() {
@@ -199,11 +201,53 @@ function handleSubmit(event) {
   const form = event.target;
   const formData = new FormData(form);
 
-  for (let [key, value] of formData.entries()) {
-    console.log(key, ":", value);
+  validateForm(formData, form);
+}
+
+function validateForm(data, form) {
+  const fields = {
+    firstName: form.querySelector("#dialog_first_name"),
+    lastName: form.querySelector("#dialog_last_name"),
+    phone: form.querySelector("#dialog_phone"),
+    email: form.querySelector("#dialog_email"),
+    urlCv: form.querySelector("#dialog_cv"),
+  };
+
+  const formValues = Object.fromEntries(data);
+  let isInvalid = false;
+
+  ["firstName", "lastName"].forEach(field => {
+    const value = formValues[field];
+    const input = fields[field];
+
+    if (!value || value.trim() === "" || /\d/.test(value)) {
+      input.classList.add("invalid");
+      isInvalid = true;
+      console.log("ERROR: ", value);
+    }
+  });
+
+  const phone = formValues.phone;
+  if (!phone || phone.trim() === "" || phone.length < 18) {
+    fields.phone.classList.add("invalid");
+    isInvalid = true;
   }
 
-  openSendModal();
+  const email = formValues.email;
+  if (!email || email.trim() === "") {
+    fields.email.classList.add("invalid");
+    isInvalid = true;
+  }
+
+  const urlCv = formValues.urlCv;
+  if (!urlCv || urlCv.trim() === "" || /\s/.test(urlCv)) {
+    fields.urlCv.classList.add("invalid");
+    isInvalid = true;
+  }
+
+  if (!isInvalid) {
+    openSendModal();
+  }
 }
 
 function addTemplateForm(id_container) {
@@ -212,7 +256,7 @@ function addTemplateForm(id_container) {
   if (template && container) {
     container.innerHTML = "";
     const clone = document.importNode(template.content, true);
-    if (id_container === "form-send-cv") {
+    if (id_container === "container_send_cv") {
       const title = clone.querySelector(".title");
       if (title) title.remove();
     }
@@ -220,6 +264,20 @@ function addTemplateForm(id_container) {
 
     const form = container.querySelector("form");
     if (form && !form._handlerSet) {
+
+      form.addEventListener("input", function(event) {
+        const input = event.target;
+        input.classList.remove("invalid");
+        if (
+          input.id === "dialog_first_name" ||
+          input.id === "dialog_last_name"
+        ) {
+          input.value = input.value.charAt(0).toUpperCase() + input.value.slice(1);
+        }
+      });
+
+      IMask(form.querySelector("#dialog_phone"), { mask: "+7 (000) 000 00-00" });
+
       form.addEventListener("submit", function(e) {
         handleSubmit(e);
       });

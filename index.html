@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap" rel="stylesheet">
 
-  <script src="src/index.js" defer></script>
+  <script type="module" src="src/index.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Вакансии</title>
 </head>
@@ -288,7 +288,7 @@
           интересное
           направление</p>
       </div>
-      <div id="form-send-cv"></div>
+      <div id="container_send_cv"></div>
     </section>
   </section>
 
@@ -352,24 +352,24 @@
     <div class="name">
       <div>
         <label for="dialog_first_name"><span>*</span> Имя</label>
-        <input id="dialog_first_name" type="text" placeholder="Иван" name="name" required>
+        <input id="dialog_first_name" type="text" placeholder="Иван" name="firstName">
       </div>
       <div>
         <label for="dialog_last_name"><span>*</span> Фамилия</label>
-        <input id="dialog_last_name" type="text" placeholder="Иванов" name="last_name" required>
+        <input id="dialog_last_name" type="text" placeholder="Иванов" name="lastName">
       </div>
     </div>
     <div class="phone">
       <label for="dialog_phone"><span>*</span> Номер телефона</label>
-      <input id="dialog_phone" type="tel" placeholder="+7 (999) 999-99-99" required>
+      <input id="dialog_phone" type="tel" placeholder="+7 (999) 999-99-99" name="phone">
     </div>
     <div class="email">
-      <label for="dialog_mail"><span>*</span> Почта</label>
-      <input id="dialog_mail" type="email" placeholder="ivanovivan@mail.com" name="email" required>
+      <label for="dialog_email"><span>*</span> Почта</label>
+      <input id="dialog_email" type="email" placeholder="ivanovivan@mail.com" name="email">
     </div>
     <div class="resume">
-      <label for="dialog_resume_file"><span>*</span> Ссылка на резюме или файл (pdf/doc)</label>
-      <input id="dialog_resume_file" type="url" placeholder="ссылка на резюме" name="cv">
+      <label for="dialog_cv"><span>*</span> Ссылка на резюме или файл (pdf/doc)</label>
+      <input id="dialog_cv" type="url" placeholder="ссылка на резюме" name="urlCv">
     </div>
     <div class="area-to-send-cv">
       <img src="src/assets/icons/ic_upload_simple.svg" alt="Upload CV">
