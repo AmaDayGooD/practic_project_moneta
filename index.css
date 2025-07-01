@@ -578,7 +578,7 @@ main p {
     gap: 8px;
 }
 
-.title_vacancy h1 {
+.name_vacancy {
     font-weight: 600;
     font-size: 48px;
     line-height: 120%;

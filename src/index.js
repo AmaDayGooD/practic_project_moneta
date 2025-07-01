@@ -8,6 +8,9 @@ const about_company = document.querySelector("#tab-about-company");
 const vacancies = document.querySelector("#tab-vacancies");
 const selected_vacancy = document.querySelector("#selected_vacancy");
 
+
+let chosen_vacancy = {};
+
 function onClickBtnAboutCompany() {
   hideAll();
   about_company.classList.add("active");
@@ -77,6 +80,7 @@ function renderListVacancies(vacancies) {
 
       const button = li.querySelector(".details-btn");
       button.addEventListener("click", () => {
+        chosen_vacancy = vacancy;
         goToVacancy(vacancy);
       });
 
@@ -89,10 +93,16 @@ function goToVacancy(vacancy) {
   hideAll();
   tab_btn_container.classList.add("hidden");
   selected_vacancy.classList.add("active");
+  fillTitleVacancy(vacancy.title);
   fillInfoVacancy(vacancy);
   fillExpectations(vacancy);
   fillOffer(vacancy);
   fillDescription(vacancy);
+}
+
+function fillTitleVacancy(title) {
+  const titleElement = document.querySelector(".name_vacancy");
+  titleElement.textContent = title;
 }
 
 function fillInfoVacancy(vacancy) {
@@ -195,16 +205,16 @@ function onClickRespond() {
   if (dialog) dialog.showModal();
 }
 
-function handleSubmit(event) {
+function handleSubmit(event, id_container) {
   event.preventDefault();
 
   const form = event.target;
   const formData = new FormData(form);
 
-  validateForm(formData, form);
+  validateForm(formData, form, id_container);
 }
 
-function validateForm(data, form) {
+function validateForm(data, form, id_container) {
   const fields = {
     firstName: form.querySelector("#dialog_first_name"),
     lastName: form.querySelector("#dialog_last_name"),
@@ -245,10 +255,29 @@ function validateForm(data, form) {
     isInvalid = true;
   }
 
+
   if (!isInvalid) {
-    openSendModal();
+    let localData = JSON.parse(getLocalData(chosen_vacancy.id));
+
+    if (localData !== null &&
+      id_container === "send_cv" &&
+      localData.id === chosen_vacancy.id &&
+      !isTwoWeeksPassed(localData.dataTime)
+    ) {
+      openAlreadySentModal();
+    } else {
+      saveLocalData(chosen_vacancy.id, { ...formValues, ...chosen_vacancy });
+      openSendModal();
+    }
   }
 }
+
+function isTwoWeeksPassed(dateString) {
+  const diffMs = new Date() - new Date(dateString);
+  const twoWeeksInMs = 1000 * 60 * 60 * 24 * 14;
+  return diffMs >= twoWeeksInMs;
+}
+
 
 function addTemplateForm(id_container) {
   const template = document.getElementById("template_vacancy");
@@ -279,7 +308,7 @@ function addTemplateForm(id_container) {
       IMask(form.querySelector("#dialog_phone"), { mask: "+7 (000) 000 00-00" });
 
       form.addEventListener("submit", function(e) {
-        handleSubmit(e);
+        handleSubmit(e, id_container);
       });
       form._handlerSet = true;
     }
@@ -294,6 +323,15 @@ function closeAllDialogs() {
       dialog.close();
     }
   });
+}
+
+function saveLocalData(key, objectData) {
+  objectData.dataTime = new Date();
+  localStorage.setItem(key, JSON.stringify(objectData));
+}
+
+function getLocalData(key) {
+  return localStorage.getItem(key);
 }
 
 function openSendModal() {
