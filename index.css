@@ -42,6 +42,14 @@ main {
     margin: 40px 80px;
 }
 
+dialog {
+    border: none;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
 header {
     padding-left: 80px;
     padding-right: 80px;
@@ -51,12 +59,9 @@ header {
     height: 80px;
 }
 
-dialog {
-    border: none;
-}
-
-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.7);
+header .menu_btn {
+    display: flex;
+    gap: 20px;
 }
 
 .menu_items {
@@ -72,9 +77,8 @@ dialog::backdrop {
     color: #0080c8;
 }
 
-header .menu_btn {
-    display: flex;
-    gap: 20px;
+#burger_menu {
+    display: none;
 }
 
 .hero {
@@ -378,6 +382,21 @@ main p {
     gap: 20px;
     padding: 0;
     grid-auto-flow: row;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .vacancies-item {
@@ -699,6 +718,7 @@ main p {
     flex-grow: 1;
     margin: 0;
 }
+
 .content {
     display: flex;
     flex-direction: column;
@@ -812,4 +832,19 @@ footer nav ul {
 
 footer nav li {
     list-style-type: none;
+}
+
+@media (max-width: 960px) {
+    #burger_menu {
+        display: block;
+        background: url("/src/assets/icons/ic_burger_menu.svg") no-repeat center / contain;
+        width: fit-content;
+        min-width: 64px;
+        min-height: 64px;
+    }
+
+    header .menu_items,
+    header .menu_btn {
+        display: none;
+    }
 }

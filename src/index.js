@@ -28,17 +28,29 @@ function hideAll() {
   selected_vacancy.classList.remove("active");
 }
 
-async function getVacancies() {
-  const url = "https://learn-9fc9-git-main-imsokolovivs-projects.vercel.app/api/vacancies/list";
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`Ошибка загрузки вакансий ${response.status}`);
+function getVacancies() {
+  const url = "https://learn-9fc9-git-main-imsokolovivs-projects.vercel.app/api/vacancies/list ";
+  const loader = document.getElementById("loader");
+  const list = document.getElementById("vacancies-list");
 
-    const vacancies = await response.json();
-    renderListVacancies(vacancies.data);
-  } catch (error) {
-    console.error("Ошибка:", error);
-  }
+  loader.style.display = "block";
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Ошибка загрузки вакансий ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      loader.style.display = "none";
+      renderListVacancies(data.data);
+    })
+    .catch(error => {
+      loader.style.display = "none";
+      console.error("Ошибка:", error);
+      list.innerHTML = "<li>Не удалось загрузить вакансии</li>";
+    });
 }
 
 function renderListVacancies(vacancies) {
@@ -172,12 +184,12 @@ function setExperience(experience) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  test("form-send-cv")
+  test("form-send-cv");
 });
 
 function onClickRespond() {
   const dialog = document.querySelector("#send_cv");
-  test("send_cv")
+  test("send_cv");
   if (dialog) dialog.showModal();
 }
 
@@ -191,7 +203,7 @@ function handleSubmit(event) {
     console.log(key, ":", value);
   }
 
-  openSendModal()
+  openSendModal();
 }
 
 function test(id_container) {
@@ -200,7 +212,7 @@ function test(id_container) {
   if (template && container) {
     container.innerHTML = "";
     const clone = document.importNode(template.content, true);
-    if(id_container === "form-send-cv") {
+    if (id_container === "form-send-cv") {
       const title = clone.querySelector(".title");
       if (title) title.remove();
     }
