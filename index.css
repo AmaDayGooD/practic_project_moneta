@@ -500,7 +500,8 @@ main p {
     margin-bottom: 20px;
 }
 
-#send_cv_form input.invalid {
+#send_cv_form input.invalid,
+#send_cv_form div.invalid {
     border: 1px solid red;
 }
 
@@ -546,11 +547,21 @@ main p {
     border-radius: 12px;
     margin-bottom: 20px;
     border: 1px solid #E2E6ED;
+    cursor: pointer;
+}
+
+.area-to-send-cv #cv_file_input {
+    display: none;
 }
 
 .area-to-send-cv span,
 #send_cv .area-to-send-cv span {
     color: #878992;
+}
+
+.area-to-send-cv.dragover {
+    background: rgba(0, 128, 200, 0.14);
+    border-color: #0080c8;
 }
 
 #send_cv_form button {

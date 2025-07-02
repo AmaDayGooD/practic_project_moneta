@@ -371,10 +371,10 @@
       <label for="dialog_cv"><span>*</span> Ссылка на резюме или файл (pdf/doc)</label>
       <input id="dialog_cv" type="url" placeholder="ссылка на резюме" name="urlCv">
     </div>
-    <div class="area-to-send-cv">
+    <div class="area-to-send-cv" id="drop-area">
       <img src="src/assets/icons/ic_upload_simple.svg" alt="Upload CV">
-      <span>загрузить файл</span>
-      <!--      <input type="file" id="cv_file_input" name="cv_file" accept=".pdf,.doc,.docx" />-->
+      <span id="cv-text">загрузить файл</span>
+      <input type="file" id="cv_file_input" name="cv_file" accept=".pdf,.doc,.docx" />
     </div>
     <button type="submit">Отправить</button>
   </form>

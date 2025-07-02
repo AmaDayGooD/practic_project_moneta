@@ -8,7 +8,6 @@ const about_company = document.querySelector("#tab-about-company");
 const vacancies = document.querySelector("#tab-vacancies");
 const selected_vacancy = document.querySelector("#selected_vacancy");
 
-
 let chosen_vacancy = {};
 
 function onClickBtnAboutCompany() {
@@ -205,22 +204,25 @@ function onClickRespond() {
   if (dialog) dialog.showModal();
 }
 
-function handleSubmit(event, id_container) {
+function handleSubmit(event, id_container, loadedFile) {
   event.preventDefault();
 
   const form = event.target;
   const formData = new FormData(form);
 
-  validateForm(formData, form, id_container);
+  const isLoadedFile = loadedFile !== null;
+
+  validateForm(formData, form, id_container, isLoadedFile);
 }
 
-function validateForm(data, form, id_container) {
+function validateForm(data, form, id_container, isLoadedFile) {
   const fields = {
     firstName: form.querySelector("#dialog_first_name"),
     lastName: form.querySelector("#dialog_last_name"),
     phone: form.querySelector("#dialog_phone"),
     email: form.querySelector("#dialog_email"),
     urlCv: form.querySelector("#dialog_cv"),
+    cvFile: form.querySelector("#drop-area"),
   };
 
   const formValues = Object.fromEntries(data);
@@ -249,10 +251,13 @@ function validateForm(data, form, id_container) {
     isInvalid = true;
   }
 
-  const urlCv = formValues.urlCv;
-  if (!urlCv || urlCv.trim() === "" || /\s/.test(urlCv)) {
-    fields.urlCv.classList.add("invalid");
-    isInvalid = true;
+  if(!isLoadedFile) {
+    const urlCv = formValues.urlCv;
+    if (!urlCv || urlCv.trim() === "" || /\s/.test(urlCv)) {
+      fields.urlCv.classList.add("invalid");
+      fields.cvFile.classList.add("invalid");
+      isInvalid = true;
+    }
   }
 
 
@@ -278,7 +283,6 @@ function isTwoWeeksPassed(dateString) {
   return diffMs >= twoWeeksInMs;
 }
 
-
 function addTemplateForm(id_container) {
   const template = document.getElementById("template_vacancy");
   const container = document.getElementById(id_container);
@@ -293,6 +297,8 @@ function addTemplateForm(id_container) {
 
     const form = container.querySelector("form");
     if (form && !form._handlerSet) {
+      const dropArea =form.querySelector("#drop-area")
+      const cvText = form.querySelector("#cv-text");
 
       form.addEventListener("input", function(event) {
         const input = event.target;
@@ -307,11 +313,56 @@ function addTemplateForm(id_container) {
 
       IMask(form.querySelector("#dialog_phone"), { mask: "+7 (000) 000 00-00" });
 
+      let uploadFile = null;
+
+      loadFile(dropArea,cvText, function(file) {
+        uploadFile = file;
+      });
+
       form.addEventListener("submit", function(e) {
-        handleSubmit(e, id_container);
+        handleSubmit(e, id_container, uploadFile);
       });
       form._handlerSet = true;
     }
+  }
+}
+
+function loadFile(dropArea, cvText, onFileSelected) {
+  const fileInput = document.querySelector("#cv_file_input");
+
+  dropArea.addEventListener("click", () => {
+    fileInput.click();
+  });
+
+  dropArea.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropArea.classList.add("dragover");
+  });
+
+  dropArea.addEventListener("dragleave", () => {
+    dropArea.classList.remove("dragover");
+  });
+
+  dropArea.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropArea.classList.remove("dragover");
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      handleFile(file);
+    }
+  });
+
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    if (file) {
+      handleFile(file);
+    }
+  });
+
+
+  function handleFile(file) {
+    cvText.textContent = file.name;
+    onFileSelected(file);
   }
 }
 
