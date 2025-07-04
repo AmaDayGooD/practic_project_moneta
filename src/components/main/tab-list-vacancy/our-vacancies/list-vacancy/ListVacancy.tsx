@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import type { FC } from "react";
-import type { VacancyData, VacancyItem } from "../../../../../types/Vacancy";
-import Loader from "../../../../../general-components/loader/Loader.tsx";
+import type { VacancyData, VacancyItem } from "@/src/types/Vacancy.ts";
+import Loader from "@general_components/loader/Loader.tsx";
 import style from "./ListVacancy.module.css";
 
 import backOfficeVacancies from "/icons/back_office_vacancies.svg";
-import Button from "../../../../../general-components/button/Button.tsx";
+import { useStoreContext } from "@store/storeContext.ts";
+import setCurrency from "@utils/setCurrency.tsx";
+import Button from "@general_components/button/Button.tsx";
 
 const VACANCIES_PER_PAGE = 9;
 
 const ListVacancy: FC = () => {
   const [vacancies, setVacancies] = useState<VacancyItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState<number>(1);
   const [hasMore, setHasMore] = useState<boolean>(true);
 
@@ -45,8 +46,8 @@ const ListVacancy: FC = () => {
       if (hasMore) {
         setPage((prev) => prev + 1);
       }
-    } catch (err) {
-      setError((err as Error).message || "Неизвестная ошибка");
+    } catch (e) {
+      throw new Error(`Ошибка получения вакансий ${e}`);
     } finally {
       setLoading(false);
     }
@@ -56,13 +57,11 @@ const ListVacancy: FC = () => {
     fetchVacancies(page);
   }, []);
 
-  const setCurrency: (currency: string) => string = (currency) => {
-    const currencies: Record<string, string> = {
-      RUB: "₽",
-      USD: "$",
-      EUR: "€",
-    };
-    return currencies[currency] || "";
+  const { setSelectedVacancy, setActiveTab } = useStoreContext();
+
+  const handleDetailClick = (vacancy: VacancyItem) => {
+    setSelectedVacancy(vacancy);
+    setActiveTab("selectedVacancy");
   };
 
   return (
@@ -74,7 +73,7 @@ const ListVacancy: FC = () => {
             <h2>{vacancy.title}</h2>
             <div>
               <p>{vacancy.salary.from} - {vacancy.salary.to} {setCurrency(vacancy.salary.currency)}</p>
-              <button className="details-btn">Подробнее</button>
+              <Button className="details-btn" onClick={() => handleDetailClick(vacancy)} text={"Подробнее"}></Button>
             </div>
           </li>
         ))}

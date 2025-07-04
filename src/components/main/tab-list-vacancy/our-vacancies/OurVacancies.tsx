@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import style from "./OurVacancies.module.css";
 import ListVacancy from "./list-vacancy/ListVacancy.tsx";
-import Button from "../../../../general-components/button/Button.tsx";
+import Button from "@general_components/button/Button.tsx";
 
 const OurVacancies: FC = () => {
   return (

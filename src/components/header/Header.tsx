@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 import coinLogo from '/icons/moneta_full_blue_logo.svg'
 import hero from '/image/hero.png'
 import type { FC } from "react";
-import Button from "../../general-components/button/Button.tsx";
+import Button from "@general_components/button/Button.tsx";
 
 const defaultNavLinks = [
   { title: "Бизнесу", href: "https://payanyway.ru/info/w/ru/public/welcome.htm " },

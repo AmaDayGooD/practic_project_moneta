@@ -1,7 +1,7 @@
-import Button from "../../../general-components/button/Button.tsx";
-import style from "./TabSwitcher.module.css";
 import type { FC } from "react";
-import { useStoreContext } from "../../../store/storeContext.ts";
+import style from "./TabSwitcher.module.css";
+import { useStoreContext } from "@store/storeContext.ts";
+import Button from "@general_components/button/Button.tsx";
 
 const TabSwitcher: FC = () => {
   const { activeTab, setActiveTab } = useStoreContext();
@@ -14,7 +14,7 @@ const TabSwitcher: FC = () => {
         onClick={() => setActiveTab("about")}
       />
       <Button
-        className={`${style.tabButton} ${activeTab === "vacancies" ? style.active : ""}`}
+        className={`${style.tabButton} ${activeTab === "vacancies" || activeTab === "selectedVacancy" ? style.active : ""}`}
         text={"Вакансии"}
         onClick={() => setActiveTab("vacancies")}
       />

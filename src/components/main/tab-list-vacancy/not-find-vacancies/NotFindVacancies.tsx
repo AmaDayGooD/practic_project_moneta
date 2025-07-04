@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import style from "./NotFindVacancies.module.css";
-import FormSendCv from "../../../../general-components/form-send-cv/FormSendCv";
+import FormSendCv from "@general_components/form-send-cv/FormSendCv.tsx";
 
 const NotFindVacancies: FC =() => {
   return (
