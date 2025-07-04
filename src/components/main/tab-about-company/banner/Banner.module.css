@@ -1,0 +1,19 @@
+.banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(90deg, #B9E6FF 0%, #E7F7FF 100%);
+    padding: 80px 60px;
+    border-radius: 34px;
+}
+
+.banner span {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 120%;
+    color: #0080C8;
+}
+
+.banner img {
+    min-height: 150px;
+}

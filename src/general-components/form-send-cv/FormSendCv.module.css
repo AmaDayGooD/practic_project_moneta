@@ -1,0 +1,127 @@
+.send_cv_form label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.send_cv_form label span {
+    color: #1182C2;
+}
+
+.send_cv_form input {
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    box-sizing: border-box;
+    height: 48px;
+    padding: 12px 16px;
+    border: 1px solid #E2E6ED;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.send_cv_form .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.send_cv_form .title button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    background: transparent;
+    width: fit-content;
+    height: fit-content;
+}
+
+.send_cv_form .title button:hover {
+    border: 2px solid transparent;
+}
+
+.send_cv_form .title h1 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    flex-grow: 1;
+    margin: 0;
+}
+
+.send_cv_form input.invalid,
+.send_cv_form div.invalid {
+    border: 1px solid red;
+}
+
+.send_cv_form .resume input {
+    margin-bottom: 8px;
+}
+
+.send_cv_form input:focus {
+    outline: none;
+    border: 1px solid #0080C8;
+}
+
+.send_cv_form .name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.send_cv_form .name div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.send_cv_form .phone,
+.send_cv_form .email,
+.send_cv_form .resume {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.send_cv_form .area_to_send_cv {
+    box-sizing: border-box;
+    height: 156px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #E2E6ED;
+    cursor: pointer;
+}
+
+.area_to_send_cv .cv_file_input {
+    display: none;
+}
+
+.area_to_send_cv span,
+#send_cv .area_to_send_cv span {
+    color: #878992;
+}
+
+.area_to_send_cv.dragover {
+    background: rgba(0, 128, 200, 0.14);
+    border-color: #0080c8;
+}
+
+.send_cv_form button {
+    height: 56px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}

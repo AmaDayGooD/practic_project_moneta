@@ -845,7 +845,7 @@ footer nav li {
 @media (max-width: 960px) {
     #burger_menu {
         display: block;
-        background: url("/src/assets/icons/ic_burger_menu.svg") no-repeat center / contain;
+        background: url("/public/icons/burger_menu.svg") no-repeat center / contain;
         width: fit-content;
         min-width: 64px;
         min-height: 64px;

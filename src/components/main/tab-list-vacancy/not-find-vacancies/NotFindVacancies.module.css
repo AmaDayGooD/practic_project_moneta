@@ -1,0 +1,33 @@
+.not_find_vacancies {
+    margin-left: -80px;
+    margin-right: -80px;
+    margin-top: 60px;
+    padding: 40px 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    background: linear-gradient(90deg, #B9E6FF 0%, #E7F7FF 100%);
+}
+
+.not_find_vacancies .description {
+    width: calc(50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.not_find_vacancies .description h1 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 120%;
+    color: #0080C8;
+}
+
+.not_find_vacancies .description p {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 140%;
+    color: #23273D;
+}

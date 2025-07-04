@@ -1,0 +1,34 @@
+.our_principles {
+    margin-top: 60px;
+}
+
+.our_principles h1 {
+    margin-bottom: 20px;
+}
+
+.principles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.principles_item {
+    padding: 24px 24px 36px;
+    background: #ffffff;
+    border-radius: 24px;
+}
+
+.principles_item img {
+    margin-bottom: 24px;
+}
+
+.principles_item h2 {
+    color: #0080c8;
+    font-family: "Wix Madefor Display", sans-serif;
+    font-weight: 500;
+}
+
+.principles_item p {
+    font-family: "Wix Madefor Display", sans-serif;
+    font-weight: 400;
+}

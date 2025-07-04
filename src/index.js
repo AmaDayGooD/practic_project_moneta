@@ -1,10 +1,10 @@
 import IMask from "imask";
 
 const tab_btn_container = document.querySelector("#tab");
-const btn_about_company = document.querySelector("#btn-about-company");
+const btn_about_company = document.querySelector("#btn-tab-about-company");
 const btn_vacancies = document.querySelector("#btn-vacancies");
 
-const about_company = document.querySelector("#tab-about-company");
+const about_company = document.querySelector("#tab-tab-about-company");
 const vacancies = document.querySelector("#tab-vacancies");
 const selected_vacancy = document.querySelector("#selected_vacancy");
 

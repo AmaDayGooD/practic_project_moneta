@@ -1,0 +1,42 @@
+.footer {
+    padding-top: 81px;
+    margin: 115px 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #dadbdd;
+}
+
+.footer .footer-about-company img {
+    width: calc(50%);
+    border-radius: 0;
+}
+
+.footer .footer-about-company {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer .footer-about-company span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #9c9d9f;
+    display: block;
+}
+
+.footer nav {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.footer nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer nav li {
+    list-style-type: none;
+}

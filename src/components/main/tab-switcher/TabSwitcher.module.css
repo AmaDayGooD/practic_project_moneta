@@ -1,0 +1,29 @@
+.tabButton {
+    background: #0080C81A;
+    color: #0080C8;
+    width: fit-content;
+}
+
+.tabButton.active {
+    background: #0080C8;
+    color: #ffffff;
+}
+
+.tab {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.tab > Button:first-child {
+    border-radius: 12px 0 0 12px;
+}
+
+.tab > Button:last-child {
+    border-radius: 0 12px 12px 0;
+}
+
+.tabButton:hover {
+    border: 2px solid #F6BC25;
+    transition: border 0.5s;
+}
