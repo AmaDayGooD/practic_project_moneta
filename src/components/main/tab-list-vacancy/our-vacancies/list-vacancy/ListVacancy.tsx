@@ -18,7 +18,6 @@ const ListVacancy: FC = () => {
   const [hasMore, setHasMore] = useState<boolean>(true);
 
   const fetchVacancies = async (pageNum: number) => {
-    console.log("Load vacancies: " + pageNum);
     if (loading || !hasMore) return;
 
     setLoading(true);

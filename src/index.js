@@ -235,7 +235,6 @@ function validateForm(data, form, id_container, isLoadedFile) {
     if (!value || value.trim() === "" || /\d/.test(value)) {
       input.classList.add("invalid");
       isInvalid = true;
-      console.log("ERROR: ", value);
     }
   });
 

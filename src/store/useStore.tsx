@@ -14,8 +14,6 @@ export const useStore = (): Store => {
   const [activeTab, setActiveTab] = useState<Tab>("about");
   const [selectedVacancy, setSelectedVacancy] = useState<VacancyItem | null>(null);
 
-  console.log(selectedVacancy, activeTab);
-
   return {
     activeTab,
     setActiveTab,
