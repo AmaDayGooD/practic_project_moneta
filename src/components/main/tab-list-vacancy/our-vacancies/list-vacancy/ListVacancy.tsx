@@ -7,7 +7,7 @@ import style from "./ListVacancy.module.css";
 import backOfficeVacancies from "/icons/back_office_vacancies.svg";
 import Button from "../../../../../general-components/button/Button.tsx";
 
-const VACANCIES_PER_PAGE = 3;
+const VACANCIES_PER_PAGE = 9;
 
 const ListVacancy: FC = () => {
   const [vacancies, setVacancies] = useState<VacancyItem[]>([]);

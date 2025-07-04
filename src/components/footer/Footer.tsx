@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './Footer.module.css'
 import coinLogo from '/icons/moneta_full_blue_logo.svg'
+import socialMedia from '/icons/social_media.svg'
 
 const Footer: React.FC = () => {
   return (
@@ -30,7 +31,7 @@ const Footer: React.FC = () => {
       </nav>
       <div>
         <a href="#">
-          <img src="src/assets/icons/ic_social_media.svg" alt="Social media" />
+          <img src={socialMedia} alt="Social media" />
         </a>
       </div>
     </footer>
