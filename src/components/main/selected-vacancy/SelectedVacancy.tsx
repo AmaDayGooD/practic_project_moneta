@@ -7,15 +7,21 @@ import setCurrency from "@utils/setCurrency.tsx";
 import setExperience from "@utils/setExperience.tsx";
 
 const SelectedVacancy: FC = () => {
-  const { setActiveTab, selectedVacancy: vacancy } = useStoreContext();
+  const {
+    setActiveTab,
+    selectedVacancy: vacancy,
+    sendCvDialog,
+    setSendCvDialog } = useStoreContext();
 
   const onClickRespond = () => {
-
+    console.log("onClickRespond: " + sendCvDialog)
+    setSendCvDialog(true)
   };
 
   const goToListVacancies = () => {
     setActiveTab("vacancies");
   };
+
   return (
     <section>
       <section className={style.title_vacancy}>
