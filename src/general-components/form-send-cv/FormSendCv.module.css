@@ -113,7 +113,7 @@
     color: #878992;
 }
 
-.area_to_send_cv.dragover {
+.dragover {
     background: rgba(0, 128, 200, 0.14);
     border-color: #0080c8;
 }
