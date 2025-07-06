@@ -25,3 +25,11 @@ header .menu_btn {
 .menu_items a:hover {
     color: #0080c8;
 }
+
+.hero {
+    width: 100%;
+}
+
+.burger_menu {
+    display: none;
+}

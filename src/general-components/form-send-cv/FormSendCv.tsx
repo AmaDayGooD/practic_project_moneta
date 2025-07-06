@@ -1,4 +1,5 @@
-import React, { type FC, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { type FC, type FormEvent } from "react";
 
 import style from "./FormSendCv.module.css";
 import close from "/icons/close.svg";
@@ -107,23 +108,15 @@ const FormSendCv: FC<Props> = ({ title = null, vacancy = null }) => {
 
 
   const [errors, setErrors] = useState({
-    errorFirstName: false,
-    errorLastName: false,
-    errorPhone: false,
-    errorEmail: false,
-    errorUrlCv: false,
+    firstName: false,
+    lastName: false,
+    phone: false,
+    email: false,
+    urlCv: false,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-
-    const errorMap = {
-      firstName: "errorFirstName",
-      lastName: "errorLastName",
-      phone: "errorPhone",
-      email: "errorEmail",
-      urlCv: "errorUrlCv",
-    };
 
     if (name === "phone") {
       IMask(e.target, { mask: "+7 (000) 000 00-00" });
@@ -136,32 +129,32 @@ const FormSendCv: FC<Props> = ({ title = null, vacancy = null }) => {
 
     setErrors((prev) => ({
       ...prev,
-      [errorMap[name]]: false,
+      [name]: false,
     }));
   };
 
-  const handleSubmit = (e: SubmitEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     const newErrors = { ...errors };
 
     const regexUrlCv: RegExp = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b[-a-zA-Z0-9()@:%_+.~#?&/=]*$/i;
 
-    newErrors.errorFirstName = !(formData.firstName.trim() !== "" &&
+    newErrors.firstName = !(formData.firstName.trim() !== "" &&
       formData.firstName.length >= 2 &&
       !/\d/.test(formData.firstName)
     );
 
-    newErrors.errorLastName = !(formData.lastName.trim() !== "" &&
+    newErrors.lastName = !(formData.lastName.trim() !== "" &&
       formData.lastName.length >= 2 &&
       !/\d/.test(formData.lastName)
     );
 
-    newErrors.errorPhone = formData.phone.length < 18;
+    newErrors.phone = formData.phone.length < 18;
 
-    newErrors.errorEmail = !(/\S+@\S+\.\S+/.test(formData.email));
+    newErrors.email = !(/\S+@\S+\.\S+/.test(formData.email));
 
-    newErrors.errorUrlCv = fileInputRef.current?.value ? false : !(regexUrlCv.test(formData.urlCv));
+    newErrors.urlCv = fileInputRef.current?.value ? false : !(regexUrlCv.test(formData.urlCv));
 
     setErrors(newErrors);
 
@@ -207,7 +200,7 @@ const FormSendCv: FC<Props> = ({ title = null, vacancy = null }) => {
         <div>
           <label htmlFor="dialog_first_name"><span>*</span> Имя</label>
           <input
-            className={errors.errorFirstName ? style.invalid : ""}
+            className={errors.firstName ? style.invalid : ""}
             id="dialog_first_name"
             type="text"
             placeholder="Иван"
@@ -219,7 +212,7 @@ const FormSendCv: FC<Props> = ({ title = null, vacancy = null }) => {
         <div>
           <label htmlFor="dialog_last_name"><span>*</span> Фамилия</label>
           <input
-            className={errors.errorLastName ? style.invalid : ""}
+            className={errors.lastName ? style.invalid : ""}
             id="dialog_last_name"
             type="text"
             placeholder="Иванов"
@@ -233,7 +226,7 @@ const FormSendCv: FC<Props> = ({ title = null, vacancy = null }) => {
       <div className={style.phone}>
         <label htmlFor="dialog_phone"><span>*</span> Номер телефона</label>
         <input
-          className={errors.errorPhone ? style.invalid : ""}
+          className={errors.phone ? style.invalid : ""}
           id="dialog_phone"
           type="tel"
           placeholder="+7 (999) 999-99-99"
@@ -246,7 +239,7 @@ const FormSendCv: FC<Props> = ({ title = null, vacancy = null }) => {
       <div className={style.email}>
         <label htmlFor="dialog_email"><span>*</span> Почта</label>
         <input
-          className={errors.errorEmail ? style.invalid : ""}
+          className={errors.email ? style.invalid : ""}
           id="dialog_email"
           type="text"
           placeholder="ivanovivan@mail.com"
@@ -259,7 +252,7 @@ const FormSendCv: FC<Props> = ({ title = null, vacancy = null }) => {
       <div className={style.resume}>
         <label htmlFor="dialog_cv"><span>*</span> Ссылка на резюме или файл (pdf/doc)</label>
         <input
-          className={errors.errorUrlCv ? style.invalid : ""}
+          className={errors.urlCv ? style.invalid : ""}
           id="dialog_cv"
           type="text"
           placeholder="ссылка на резюме"

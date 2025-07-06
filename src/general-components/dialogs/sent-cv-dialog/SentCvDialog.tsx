@@ -51,7 +51,7 @@ const SentCvDialog: FC = () => {
           <div className={style.header_controls}>
             <Button image={close} className={style.btn} onClick={() => closeDialogs()} />
           </div>
-          <div className="content">
+          <div className={style.content}>
             <img src={smile_circle} alt="Smile circle" />
             <h1>Отклик отправлен!</h1>
             <span>HR-менеджер скоро свяжется с вами</span>
@@ -64,7 +64,7 @@ const SentCvDialog: FC = () => {
           <div className={style.header_controls}>
             <Button image={close} className={style.btn} onClick={() => closeDialogs()} />
           </div>
-          <div className="content">
+          <div className={style.content}>
             <img src={starCircle} alt="Star circle" />
             <h1>Вы уже откликались на эту вакансию </h1>
             <span>Повторите попытку позже</span>

@@ -6,7 +6,7 @@ import socialMedia from '/icons/social_media.svg'
 const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
-      <div className="footer-about-company">
+      <div className={styles.footer_about_company}>
         <a href="https://www.moneta.ru/">
           <img src={coinLogo} alt="logo" />
         </a>

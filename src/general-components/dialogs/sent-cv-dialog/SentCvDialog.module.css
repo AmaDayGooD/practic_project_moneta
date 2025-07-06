@@ -34,3 +34,27 @@
     margin-bottom: 20px;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 54px;
+    margin-top: 34px;
+}
+
+.content h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+}
+
+.content span {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 8px;
+}
+

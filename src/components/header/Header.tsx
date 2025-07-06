@@ -33,9 +33,9 @@ export const Header: FC = () => {
             <Button text={"Регистрация"}/>
           </a>
         </div>
-        <button id="burger_menu"></button>
+        <button className={styles.burger_menu}></button>
       </header>
-      <img className="hero" src={hero} alt="Pay" />
+      <img className={styles.hero} src={hero} alt="Pay" />
     </>
   );
 };
