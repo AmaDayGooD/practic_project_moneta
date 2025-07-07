@@ -1,4 +1,4 @@
-import { isTwoWeeksPassed, setCurrency, setExperience } from "../utils.js";
+import { isTwoWeeksPassed, setCurrency, setExperience } from "../utils/GeneralUtils.js";
 
 test("Определение символа валюты", () => {
   expect(setCurrency("RUB")).toBe("₽");

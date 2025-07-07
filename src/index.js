@@ -1,5 +1,6 @@
 import IMask from "imask";
-import { isTwoWeeksPassed, setExperience } from "./utils.js";
+import { isTwoWeeksPassed, setCurrency, setExperience } from "./utils/GeneralUtils.js";
+import validateForm from "./utils/validateForm.js";
 
 const tab_btn_container = document.querySelector("#tab");
 const btn_about_company = document.querySelector("#btn-about-company");
@@ -194,10 +195,10 @@ function handleSubmit(event, id_container, loadedFile) {
 
   const isLoadedFile = loadedFile !== null;
 
-  validateForm(formData, form, id_container, isLoadedFile);
+  validateFormWithDOM(formData, form, id_container, isLoadedFile);
 }
 
-function validateForm(data, form, id_container, isLoadedFile) {
+function validateFormWithDOM(data, form, id_container, isLoadedFile) {
   const fields = {
     firstName: form.querySelector("#dialog_first_name"),
     lastName: form.querySelector("#dialog_last_name"),
@@ -208,54 +209,40 @@ function validateForm(data, form, id_container, isLoadedFile) {
   };
 
   const formValues = Object.fromEntries(data);
-  let isInvalid = false;
 
-  ["firstName", "lastName"].forEach(field => {
-    const value = formValues[field];
-    const input = fields[field];
+  const invalidFields = validateForm(data);
 
-    if (!value || value.trim() === "" || /\d/.test(value)) {
-      input.classList.add("invalid");
-      isInvalid = true;
-      console.log("ERROR: ", value);
+  Object.values(fields).forEach(field => {
+    field?.classList.remove("invalid");
+  });
+
+  invalidFields.forEach(field => {
+    if (fields[field]) {
+      fields[field].classList.add("invalid");
     }
   });
 
-  const phone = formValues.phone;
-  if (!phone || phone.trim() === "" || phone.length < 18) {
-    fields.phone.classList.add("invalid");
-    isInvalid = true;
+  const isInvalid = invalidFields.length > 0;
+
+  if (isInvalid) {
+    return;
   }
 
-  const email = formValues.email;
-  if (!email || email.trim() === "") {
-    fields.email.classList.add("invalid");
-    isInvalid = true;
-  }
+  let localData = JSON.parse(getLocalData(chosen_vacancy.id));
 
-  if(!isLoadedFile) {
-    const urlCv = formValues.urlCv;
-    if (!urlCv || urlCv.trim() === "" || /\s/.test(urlCv)) {
-      fields.urlCv.classList.add("invalid");
-      fields.cvFile.classList.add("invalid");
-      isInvalid = true;
-    }
-  }
-
-
-  if (!isInvalid) {
-    let localData = JSON.parse(getLocalData(chosen_vacancy.id));
-
-    if (localData !== null &&
-      id_container === "send_cv" &&
+  if (id_container === "send_cv") {
+    const hasRecentSubmission = localData !== null &&
       localData.id === chosen_vacancy.id &&
-      !isTwoWeeksPassed(localData.dataTime)
-    ) {
+      !isTwoWeeksPassed(localData.dataTime);
+
+    if (hasRecentSubmission) {
       openAlreadySentModal();
     } else {
       saveLocalData(chosen_vacancy.id, { ...formValues, ...chosen_vacancy });
       openSendModal();
     }
+  } else {
+    openSendModal();
   }
 }
 
@@ -273,7 +260,7 @@ function addTemplateForm(id_container) {
 
     const form = container.querySelector("form");
     if (form && !form._handlerSet) {
-      const dropArea =form.querySelector("#drop-area")
+      const dropArea = form.querySelector("#drop-area");
       const cvText = form.querySelector("#cv-text");
 
       form.addEventListener("input", function(event) {
@@ -291,7 +278,7 @@ function addTemplateForm(id_container) {
 
       let uploadFile = null;
 
-      loadFile(dropArea,cvText, function(file) {
+      loadFile(dropArea, cvText, function(file) {
         uploadFile = file;
       });
 
