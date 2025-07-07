@@ -1,4 +1,5 @@
 import IMask from "imask";
+import { isTwoWeeksPassed, setExperience } from "./utils.js";
 
 const tab_btn_container = document.querySelector("#tab");
 const btn_about_company = document.querySelector("#btn-about-company");
@@ -175,25 +176,6 @@ function goToListVacancies() {
   vacancies.classList.add("active");
 }
 
-function setCurrency(currency) {
-  const currencies = {
-    RUB: "₽",
-    USD: "$",
-    EUR: "€",
-  };
-  return currencies[currency] || "";
-}
-
-function setExperience(experience) {
-  const experiences = {
-    NO_WORK_EXPERIENCE: "без опыта",
-    WORK_EXPERIENCE_FROM_1_YEAR_TO_3_YEAR: "1 - 3 года",
-    WORK_EXPERIENCE_FROM_3_YEAR_TO_6_YEAR: "3 - 6 лет",
-    WORK_EXPERIENCE_MORE_THAN_6_YEAR: "более 6 лет",
-  };
-  return experiences[experience] || "";
-}
-
 document.addEventListener("DOMContentLoaded", function() {
   addTemplateForm("container_send_cv");
 });
@@ -275,12 +257,6 @@ function validateForm(data, form, id_container, isLoadedFile) {
       openSendModal();
     }
   }
-}
-
-function isTwoWeeksPassed(dateString) {
-  const diffMs = new Date() - new Date(dateString);
-  const twoWeeksInMs = 1000 * 60 * 60 * 24 * 14;
-  return diffMs >= twoWeeksInMs;
 }
 
 function addTemplateForm(id_container) {
