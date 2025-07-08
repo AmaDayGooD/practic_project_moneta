@@ -10,6 +10,31 @@ const selected_vacancy = document.querySelector("#selected_vacancy");
 
 let chosen_vacancy = {};
 
+function onClickBurgerMenu() {
+  const menu = document.getElementById("dropdown_menu");
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "block";
+  }
+}
+
+window.addEventListener('resize', function () {
+  const menu = document.getElementById("dropdown_menu");
+  if (window.innerWidth < 960 && menu.style.display === "block") {
+    menu.style.display = "none";
+  }
+});
+
+document.addEventListener('click', function(event) {
+  const burger = document.getElementById('burger_menu');
+  const menu = document.getElementById('dropdown_menu');
+
+  if (!burger.contains(event.target) && !menu.contains(event.target)) {
+    menu.style.display = 'none';
+  }
+});
+
 function onClickBtnAboutCompany() {
   hideAll();
   about_company.classList.add("active");
@@ -395,6 +420,7 @@ function openAlreadySentModal() {
   dialog.showModal();
 }
 
+window.onClickBurgerMenu = onClickBurgerMenu;
 window.onClickBtnVacancy = onClickBtnVacancy;
 window.onClickBtnAboutCompany = onClickBtnAboutCompany;
 window.goToListVacancies = goToListVacancies;

@@ -33,7 +33,14 @@
       <button type="button">Регистрация</button>
     </a>
   </div>
-  <button id="burger_menu"></button>
+  <button id="burger_menu" onclick="onClickBurgerMenu()"></button>
+  <ul id="dropdown_menu" class="dropdown">
+    <li><a href="https://payanyway.ru/info/w/ru/public/welcome.htm">Бизнесу</a></li>
+    <li><a href="https://www.moneta.ru/info/d/ru/public/users/tariffs.htm">Физлицам</a></li>
+    <li><a href="https://docs.moneta.ru/">Документация</a></li>
+    <li><a href="https://www.moneta.ru/info/d/ru/public/users/nko.htm">О нас</a></li>
+    <li><a href="https://www.moneta.ru/info/d/ru/public/about/contacts.htm">Контакты</a></li>
+  </ul>
 </header>
 
 <!--Under Header-->
@@ -382,33 +389,64 @@
 
 <!--Footer-->
 <footer>
-  <div class="footer-about-company">
-    <a href="https://www.moneta.ru/">
-      <img src="src/assets/icons/ic_moneta_full_blue_logo.svg" alt="logo">
-    </a>
-    <span>© 2005 — 2023 НКО «МОНЕТА» (ООО)</span>
+  <div class="footer_desktop">
+    <div class="footer-about-company">
+      <a href="https://www.moneta.ru/">
+        <img src="src/assets/icons/ic_moneta_full_blue_logo.svg" alt="logo">
+      </a>
+      <span>© 2005 — 2023 НКО «МОНЕТА» (ООО)</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="https://www.moneta.ru/info/d/ru/public/about/index.htm">О нас</a></li>
+        <li><a href="https://www.moneta.ru/info/d/ru/public/merchants/index.htm">Бизнесу</a></li>
+        <li><a href="https://www.moneta.ru/info/d/ru/public/users/tariffs.htm">Физлицам</a></li>
+        <li><a href="https://www.moneta.ru/news.htm">Новости</a></li>
+        <li><a href="https://www.moneta.ru/info/d/ru/public/about/contacts.htm">Контакты</a></li>
+        <li><a href="https://yoshkar-ola.hh.ru/employer/5936246?hhtmFrom=vacancy">Вакансии</a></li>
+        <li><a href="#">Задать вопрос</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Политика<br>конфиденциальности</a></li>
+      </ul>
+    </nav>
+    <div>
+      <a href="#">
+        <img src="src/assets/icons/ic_social_media.svg" alt="Social media">
+      </a>
+    </div>
   </div>
-  <nav>
-    <ul>
-      <li><a href="https://www.moneta.ru/info/d/ru/public/about/index.htm">О нас</a></li>
-      <li><a href="https://www.moneta.ru/info/d/ru/public/merchants/index.htm">Бизнесу</a></li>
-      <li><a href="https://www.moneta.ru/info/d/ru/public/users/tariffs.htm">Физлицам</a></li>
-    </ul>
-    <ul>
-      <li><a href="https://www.moneta.ru/news.htm">Новости</a></li>
-      <li><a href="https://www.moneta.ru/info/d/ru/public/about/contacts.htm">Контакты</a></li>
-      <li><a href="https://yoshkar-ola.hh.ru/employer/5936246?hhtmFrom=vacancy">Вакансии</a></li>
-    </ul>
-    <ul>
-      <li><a href="#">Задать вопрос</a></li>
-      <li><a href="#">FAQ</a></li>
-      <li><a href="#">Политика<br>конфиденциальности</a></li>
-    </ul>
-  </nav>
-  <div>
-    <a href="#">
-      <img src="src/assets/icons/ic_social_media.svg" alt="Social media">
-    </a>
+
+  <div class="footer_mobile">
+    <div class="footer_first">
+      <div class="m_logo">
+        <a href="https://www.moneta.ru/">
+          <img src="src/assets/icons/ic_moneta_full_blue_logo.svg" alt="logo">
+        </a>
+      </div>
+      <a href="https://vk.com/moneta_ru">
+        <img src="src/assets/icons/ic_social_media.svg" alt="Social media">
+      </a>
+    </div>
+    <div class="footer_menu">
+      <nav>
+        <ul>
+          <li><a href="https://www.moneta.ru/info/d/ru/public/about/index.htm">О нас</a></li>
+          <li><a href="https://www.moneta.ru/info/d/ru/public/merchants/index.htm">Бизнесу</a></li>
+          <li><a href="https://www.moneta.ru/info/d/ru/public/users/tariffs.htm">Физлицам</a></li>
+          <li><a href="https://www.moneta.ru/news.htm">Новости</a></li>
+          <li><a href="https://www.moneta.ru/info/d/ru/public/about/contacts.htm">Контакты</a></li>
+          <li><a href="https://yoshkar-ola.hh.ru/employer/5936246?hhtmFrom=vacancy">Вакансии</a></li>
+          <li><a href="#">Задать вопрос</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Политика<br>конфиденциальности</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer_bottom">
+      <div class="footer_copy">© 2005 — 2025
+        <a href="https://www.moneta.ru/info/d/ru/public/users/nko.htm">НКО «МОНЕТА» (ООО)</a>
+      </div>
+    </div>
   </div>
 </footer>
 </body>
