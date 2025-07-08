@@ -20,103 +20,15 @@
     padding-left: 20px;
 }
 
-.our_vacancies ul {
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 0;
-    grid-auto-flow: row;
-}
+@media (max-width: 570px) {
+    .our_vacancies nav {
+        gap: 8px;
+        align-items: stretch;
+    }
 
-.loader {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
-    margin: 20px auto;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.vacancies-item {
-    list-style: none;
-    padding: 24px;
-    border-radius: 24px;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.vacancies-item h2 {
-    height: 40%;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 140%;
-
-}
-
-.vacancies-item p {
-    align-content: center;
-    margin: 0;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 18px;
-
-}
-
-.vacancies-item div {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.vacancies-item button {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-}
-
-.not-find-vacancies {
-    margin-left: -80px;
-    margin-right: -80px;
-    margin-top: 60px;
-    padding: 40px 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-    background: linear-gradient(90deg, #B9E6FF 0%, #E7F7FF 100%);
-}
-
-.not-find-vacancies .description {
-    width: calc(50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-}
-
-.not-find-vacancies .description h1 {
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 120%;
-    color: #0080C8;
-}
-
-.not-find-vacancies .description p {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 140%;
-    color: #23273D;
+    .our_vacancies nav button {
+        height: fit-content;
+        min-height: 85px;
+        flex: 1;
+    }
 }

@@ -1,8 +1,9 @@
 import styles from "./Header.module.css";
 
-import coinLogo from '/icons/moneta_full_blue_logo.svg'
-import hero from '/image/hero.png'
-import type { FC } from "react";
+import coinLogo from "/icons/moneta_full_blue_logo.svg";
+import hero from "/image/hero.png";
+import burgerMenu from "/icons/burger_menu.svg"
+import { type FC, useEffect, useState } from "react";
 import Button from "@general_components/button/Button.tsx";
 
 const defaultNavLinks = [
@@ -14,6 +15,18 @@ const defaultNavLinks = [
 ];
 
 export const Header: FC = () => {
+
+  const [openMenu, setOpenMenu] = useState(false);
+
+  useEffect(() => {
+    const dropdown = document.querySelector(`.${styles.dropdown}`);
+    if(openMenu) {
+      dropdown?.classList.add(styles.show)
+    } else {
+      dropdown?.classList.remove(styles.show)
+    }
+  }, [openMenu]);
+
   return (
     <>
       <header className={styles.header}>
@@ -27,13 +40,20 @@ export const Header: FC = () => {
         </nav>
         <div className={styles.menu_btn}>
           <a href="https://www.moneta.ru/login.htm ">
-            <Button text={"Вход"} type={"light"}/>
+            <Button text={"Вход"} type={"light"} />
           </a>
           <a href="https://www.moneta.ru/register.htm ">
-            <Button text={"Регистрация"}/>
+            <Button text={"Регистрация"} />
           </a>
         </div>
-        <button className={styles.burger_menu}></button>
+        <Button className={styles.burger_menu} onClick={() => setOpenMenu(!openMenu)} image={burgerMenu}></Button>
+        <ul className={styles.dropdown}>
+          <li><a href="https://payanyway.ru/info/w/ru/public/welcome.htm">Бизнесу</a></li>
+          <li><a href="https://www.moneta.ru/info/d/ru/public/users/tariffs.htm">Физлицам</a></li>
+          <li><a href="https://docs.moneta.ru/">Документация</a></li>
+          <li><a href="https://www.moneta.ru/info/d/ru/public/users/nko.htm">О нас</a></li>
+          <li><a href="https://www.moneta.ru/info/d/ru/public/about/contacts.htm">Контакты</a></li>
+        </ul>
       </header>
       <img className={styles.hero} src={hero} alt="Pay" />
     </>

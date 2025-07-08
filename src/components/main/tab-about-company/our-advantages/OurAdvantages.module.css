@@ -50,3 +50,27 @@
 .advantages_item h1 {
     font-weight: 600;
 }
+
+@media (max-width: 960px) {
+    .advantages_item > img {
+        width: calc(100%);
+    }
+
+    .advantages_item {
+        flex-direction: column;
+        margin-bottom: 16px;
+    }
+
+    .advantages_item:nth-child(odd) {
+        flex-direction: column;
+    }
+
+    .advantages_item p {
+        margin-top: 8px;
+    }
+
+    .advantages_item:nth-child(odd) div h2,
+    .advantages_item:nth-child(odd) div p {
+        text-align: start;
+    }
+}

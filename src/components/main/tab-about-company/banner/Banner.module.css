@@ -17,3 +17,29 @@
 .banner img {
     min-height: 150px;
 }
+
+@media (max-width: 960px) {
+    .banner {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 570px) {
+    .banner {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner span {
+        max-width: 85%;
+        display: block;
+        font-size: 22px;
+    }
+
+    .banner img {
+        max-width: 50%;
+        min-height: 50px;
+    }
+}

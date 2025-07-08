@@ -38,3 +38,11 @@
 .tools_item:nth-child(5) {
     grid-area: e;
 }
+
+@media (max-width: 960px) {
+    .tools {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

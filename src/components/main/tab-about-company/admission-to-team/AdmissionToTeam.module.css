@@ -50,3 +50,21 @@
   height: 40px;
   width: 1px;
 }
+
+@media (max-width: 960px) {
+  .admission_item {
+    max-width: fit-content;
+    border-radius: 34px;
+    border: 1px solid #0080C8;
+    padding: 20px 20px 20px;
+  }
+
+  .admission_item .stage {
+    color: #0080c8;
+    font-weight: 700;
+    font-size: 38px;
+    text-align: center;
+    line-height: 140%;
+    padding-bottom: 0;
+  }
+}

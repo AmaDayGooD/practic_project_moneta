@@ -72,7 +72,7 @@ const ListVacancy: FC = () => {
             <h2>{vacancy.title}</h2>
             <div>
               <p>{vacancy.salary.from} - {vacancy.salary.to} {setCurrency(vacancy.salary.currency)}</p>
-              <Button className="details-btn" onClick={() => handleDetailClick(vacancy)} text={"Подробнее"}></Button>
+              <Button className={style.details_btn} onClick={() => handleDetailClick(vacancy)} text={"Подробнее"}></Button>
             </div>
           </li>
         ))}

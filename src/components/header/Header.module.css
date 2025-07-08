@@ -7,6 +7,10 @@
     height: 80px;
 }
 
+.burger_menu {
+    display: none;
+}
+
 header .menu_btn {
     display: flex;
     gap: 20px;
@@ -30,6 +34,59 @@ header .menu_btn {
     width: 100%;
 }
 
-.burger_menu {
+#burger_menu,
+.dropdown {
     display: none;
+}
+
+.dropdown.show {
+    display: block;
+}
+
+@media (max-width: 960px) {
+    .header {
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+    }
+
+    .burger_menu {
+        background: transparent;
+        display: block;
+        width: fit-content;
+        min-width: 64px;
+        min-height: 64px;
+        padding: 0;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        width: 45%;
+        top: 70px;
+        right: 8px;
+        background: #ffffff;
+        z-index: 1000;
+        padding: 0;
+    }
+
+    .dropdown li {
+        padding: 16px 12px;
+        border: 1px solid #DADBDD2D;
+        list-style-type: none;
+    }
+
+    .dropdown li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 20px;
+        display: block;
+    }
+    header .menu_items,
+    header .menu_btn {
+        display: none;
+    }
 }

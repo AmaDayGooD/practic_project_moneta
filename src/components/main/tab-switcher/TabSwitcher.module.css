@@ -27,3 +27,19 @@
     border: 2px solid #F6BC25;
     transition: border 0.5s;
 }
+
+@media (max-width: 570px) {
+    .tab {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .tabButton {
+        background: #0080C81A;
+        color: #0080C8;
+        height: 50px;
+        width: 100%;
+        font-size: 20px;
+    }
+}
