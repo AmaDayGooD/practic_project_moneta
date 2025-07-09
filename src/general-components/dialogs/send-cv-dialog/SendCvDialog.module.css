@@ -1,5 +1,17 @@
-.wrapper_dialog {
+.container_send_cv {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 24px;
+    width: 50%;
+    height: 100%;
+}
+
+@media (max-width: 960px) {
+    .container_send_cv {
+        width: 95%;
+        height: 95%;
+    }
 }

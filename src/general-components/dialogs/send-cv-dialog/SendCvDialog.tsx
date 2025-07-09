@@ -25,7 +25,7 @@ const SendCvDialog: FC = () => {
   }, [sendCvDialog]);
 
   return (
-    <dialog ref={dialogRef} id={"container_send_cv"} className={style.wrapper_dialog}>
+    <dialog ref={dialogRef} className={style.container_send_cv}>
       <FormSendCv title={title} vacancy={selectedVacancy}/>
     </dialog>
   );
