@@ -61,7 +61,13 @@
     font-size: 16px;
     line-height: 20px;
 }
+
 @media (max-width: 970px) {
+    .list_vacancies{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .vacancies_item div {
         display: flex;
         flex-direction: row;
@@ -78,33 +84,33 @@
     .list_vacancies {
         display: flex;
         flex-direction: column;
-        gap:12px;
+        gap: 12px;
     }
 
     .vacancies_item {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 12px;
         padding: 16px 16px;
         width: calc(100%);
     }
 
     .vacancies_item img {
-        max-width: 10%;
+        max-width: 100%;
     }
 
     .vacancies_item div {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        max-width: 45%;
+        max-width: 100%;
         gap: 12px;
         align-items: start;
     }
 
     .vacancies_item h2 {
         font-size: 16px;
-        min-width: 45%;
+        font-weight: 800;
     }
 
     .vacancies_item button {

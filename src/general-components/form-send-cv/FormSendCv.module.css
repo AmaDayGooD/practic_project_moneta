@@ -125,3 +125,12 @@
     font-size: 16px;
     line-height: 20px;
 }
+
+@media (max-width: 570px) {
+    .send_cv_form .name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+}

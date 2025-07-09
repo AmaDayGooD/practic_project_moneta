@@ -2,7 +2,7 @@ import type { FC } from "react";
 import style from "./NotFindVacancies.module.css";
 import FormSendCv from "@general_components/form-send-cv/FormSendCv.tsx";
 
-const NotFindVacancies: FC =() => {
+const NotFindVacancies: FC = () => {
   return (
     <section className={style.not_find_vacancies}>
       <div className={style.description}>
@@ -11,12 +11,12 @@ const NotFindVacancies: FC =() => {
           интересное
           направление</p>
       </div>
-      <div id="container_send_cv">
-        <FormSendCv withTitle={false} />
+      <div className={style.container_send_cv}>
+        <FormSendCv />
       </div>
 
     </section>
-  )
+  );
 };
 
 export default NotFindVacancies;
