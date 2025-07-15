@@ -19,19 +19,19 @@ function onClickBurgerMenu() {
   }
 }
 
-window.addEventListener('resize', function () {
+window.addEventListener("resize", function() {
   const menu = document.getElementById("dropdown_menu");
   if (window.innerWidth < 960 && menu.style.display === "block") {
     menu.style.display = "none";
   }
 });
 
-document.addEventListener('click', function(event) {
-  const burger = document.getElementById('burger_menu');
-  const menu = document.getElementById('dropdown_menu');
+document.addEventListener("click", function(event) {
+  const burger = document.getElementById("burger_menu");
+  const menu = document.getElementById("dropdown_menu");
 
   if (!burger.contains(event.target) && !menu.contains(event.target)) {
-    menu.style.display = 'none';
+    menu.style.display = "none";
   }
 });
 
@@ -93,8 +93,14 @@ function renderListVacancies(vacancies) {
       li.className = "vacancies-item";
       li.setAttribute("data-id", vacancy.id);
 
+      const image = vacancy.department === "backoffice" ?
+        "src/assets/icons/ic_back_office_vacancies.svg" :
+        "src/assets/icons/ic_technical_vacancies.svg";
+
+      const imageAlt = vacancy.department === "backoffice" ? "Бэк-офис" : "Техническое";
+
       li.innerHTML = `
-        <img src="src/assets/icons/ic_back_office_vacancies.svg" alt="Техническое">
+        <img src=${image} alt=${imageAlt}>
         <h2>${vacancy.title}</h2>
         <div>
           <p>${vacancy.salary.from} - ${vacancy.salary.to}${setCurrency(vacancy.salary.currency)}</p>
@@ -135,13 +141,22 @@ function fillInfoVacancy(vacancy) {
   const ul = document.createElement("ul");
   const salary = document.createElement("li");
   const experience = document.createElement("li");
+  const timeJob = document.createElement("li");
+  const workTime = document.createElement("li");
 
   salary.innerHTML = `
   <strong>Заработная плата: </strong><span>от ${vacancy.salary.from} до ${vacancy.salary.to} ${setCurrency(vacancy.salary.currency)} за месяц ${vacancy.salary.gross ? ", на руки" : ""}</span>`;
 
   experience.innerHTML = `
-    <strong>Опыт работы: </strong><span>${setExperience(vacancy.experience)}</span>
-`;
+    <strong>Опыт работы: </strong><span>${setExperience(vacancy.experience)}</span>`;
+
+  timeJob.innerHTML = vacancy.work_employment
+    ? `<strong>${setEmployment(vacancy.work_employment)}</strong>`
+    : "";
+
+  workTime.innerHTML = vacancy.work_schedule
+    ? `<strong>График: </strong><span>${vacancy.work_schedule}</span>`
+    : "";
 
   ul.appendChild(salary);
   ul.appendChild(experience);
@@ -219,6 +234,10 @@ function setExperience(experience) {
   return experiences[experience] || "";
 }
 
+function setEmployment(employment) {
+  return employment === "fulltime" ? "Полная занятость" : "Частичная занятость";
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   addTemplateForm("container_send_cv");
 });
@@ -276,7 +295,7 @@ function validateForm(data, form, id_container, isLoadedFile) {
     isInvalid = true;
   }
 
-  if(!isLoadedFile) {
+  if (!isLoadedFile) {
     const urlCv = formValues.urlCv;
     if (!urlCv || urlCv.trim() === "" || /\s/.test(urlCv)) {
       fields.urlCv.classList.add("invalid");
@@ -322,7 +341,7 @@ function addTemplateForm(id_container) {
 
     const form = container.querySelector("form");
     if (form && !form._handlerSet) {
-      const dropArea =form.querySelector("#drop-area")
+      const dropArea = form.querySelector("#drop-area");
       const cvText = form.querySelector("#cv-text");
 
       form.addEventListener("input", function(event) {
@@ -340,7 +359,7 @@ function addTemplateForm(id_container) {
 
       let uploadFile = null;
 
-      loadFile(dropArea,cvText, function(file) {
+      loadFile(dropArea, cvText, function(file) {
         uploadFile = file;
       });
 
