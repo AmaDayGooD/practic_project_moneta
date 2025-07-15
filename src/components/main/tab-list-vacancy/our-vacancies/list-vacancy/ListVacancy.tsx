@@ -5,6 +5,7 @@ import Loader from "@general_components/loader/Loader.tsx";
 import style from "./ListVacancy.module.css";
 
 import backOfficeVacancies from "/icons/back_office_vacancies.svg";
+import technicalVacancies from "/icons/technical_vacancies.svg";
 import { useStoreContext } from "@store/storeContext.ts";
 import setCurrency from "@utils/setCurrency.tsx";
 import Button from "@general_components/button/Button.tsx";
@@ -66,9 +67,9 @@ const ListVacancy: FC = () => {
   return (
     <>
       <ul className={style.list_vacancies}>
-        {vacancies.map((vacancy) => (
+        {vacancies.map((vacancy: VacancyItem) => (
           <li className={style.vacancies_item} key={vacancy.id}>
-            <img src={backOfficeVacancies} alt="Техническое" />
+            <img src={vacancy.department === 'backoffice' ? backOfficeVacancies : technicalVacancies} alt={vacancy.department} />
             <h2>{vacancy.title}</h2>
             <div>
               <p>{vacancy.salary.from} - {vacancy.salary.to} {setCurrency(vacancy.salary.currency)}</p>

@@ -20,6 +20,9 @@ export type VacancyItem = {
   experience: JobExperience;
   published: string;
   url: string;
+  department: string;
+  work_employment: string;
+  work_schedule: string;
 };
 
 export type VacancyData = {

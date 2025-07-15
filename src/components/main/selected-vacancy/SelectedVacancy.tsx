@@ -22,6 +22,12 @@ const SelectedVacancy: FC = () => {
     setActiveTab("vacancies");
   };
 
+  const setEmployment = (workEmployment: string) => {
+    return workEmployment === "fulltime" ?
+      "Полная занятость" :
+      "Частичная занятость";
+  };
+
   return (
     <section>
       <section className={style.title_vacancy}>
@@ -33,11 +39,15 @@ const SelectedVacancy: FC = () => {
       </section>
       <section className={style.info_vacancy}>
         <ul>
-          {vacancy?.salary && <li><strong>Заработная
-            плата: </strong><span>от {vacancy?.salary.from} до {vacancy?.salary.to} {setCurrency(vacancy?.salary.currency)} за месяц {vacancy.salary.gross ? ", на руки" : ""}</span>
+          {vacancy?.salary &&
+            <li><strong>Заработная плата: </strong><span>от {vacancy?.salary.from} до {vacancy?.salary.to} {setCurrency(vacancy?.salary.currency)} за месяц {vacancy.salary.gross ? ", на руки" : ""}</span>
           </li>}
           {vacancy?.experience &&
             <li><strong>Опыт работы: </strong><span>{setExperience(vacancy.experience)}</span></li>}
+          {vacancy?.work_employment &&
+          <li><strong>{setEmployment(vacancy?.work_employment)}</strong></li>}
+          {vacancy?.work_schedule &&
+          <li><strong>График: </strong><span>{vacancy?.work_schedule}</span></li>}
         </ul>
       </section>
       <section className={style.requirements_vacancy}>
