@@ -372,6 +372,13 @@ main p {
     padding-left: 20px;
 }
 
+.our-vacancies nav button.active {
+    border: 1px solid #0080C8;
+    color: #0080C8;
+    background: #DCEAF3;
+
+}
+
 .our-vacancies ul {
     height: 100%;
     display: grid;

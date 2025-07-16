@@ -280,9 +280,9 @@
     <section class="our-vacancies">
       <h1>Наши вакансии</h1>
       <nav>
-        <button class="all_vacancies">Все</button>
-        <button class="technical_vacancies">Техническое направление</button>
-        <button class="back_office_vacancies">Бэкофис и работа с клиентами</button>
+        <button class="all_vacancies active" onclick="selectTypeVacancy(this)" data-category="all">Все</button>
+        <button class="technical_vacancies" onclick="selectTypeVacancy(this)" data-category="developer">Техническое направление</button>
+        <button class="back_office_vacancies" onclick="selectTypeVacancy(this)" data-category="backoffice">Бэкофис и работа с клиентами</button>
       </nav>
       <ul class="vacancies-list" id="vacanciesList"></ul>
       <div id="loader" class="loader"></div>

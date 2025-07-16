@@ -9,6 +9,7 @@ const vacancies = document.querySelector("#tab-vacancies");
 const selected_vacancy = document.querySelector("#selected_vacancy");
 
 let chosen_vacancy = {};
+let allVacancies = [];
 
 function onClickBurgerMenu() {
   const menu = document.getElementById("dropdown_menu");
@@ -73,7 +74,8 @@ function getVacancies() {
     })
     .then(data => {
       loader.style.display = "none";
-      renderListVacancies(data.data);
+      allVacancies = data.data;
+      renderListVacancies(allVacancies);
     })
     .catch(error => {
       loader.style.display = "none";
@@ -117,6 +119,26 @@ function renderListVacancies(vacancies) {
       container.appendChild(li);
     }
   });
+}
+
+function filterVacancies(category) {
+  let filtered;
+  if (category === 'all') {
+    filtered = allVacancies;
+  } else if (category === 'developer') {
+    filtered = allVacancies.filter(v => v.department === 'developer');
+  } else if (category === 'backoffice') {
+    filtered = allVacancies.filter(v => v.department === 'backoffice');
+  }
+  document.getElementById("vacanciesList").innerHTML = "";
+  renderListVacancies(filtered);
+}
+
+function selectTypeVacancy(button) {
+  document.querySelectorAll("nav button").forEach(btn => btn.classList.remove("active"));
+  button.classList.add("active");
+  const category = button.getAttribute("data-category");
+  filterVacancies(category);
 }
 
 function goToVacancy(vacancy) {
@@ -439,6 +461,7 @@ function openAlreadySentModal() {
   dialog.showModal();
 }
 
+window.selectTypeVacancy = selectTypeVacancy;
 window.onClickBurgerMenu = onClickBurgerMenu;
 window.onClickBtnVacancy = onClickBtnVacancy;
 window.onClickBtnAboutCompany = onClickBtnAboutCompany;
