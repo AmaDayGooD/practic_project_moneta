@@ -6,30 +6,24 @@
     text-decoration: none;
 }
 
-button, .pseudo-btn {
-    height: 40px;
-    width: 134px;
+button {
+    padding: 10px 16px;
     font-weight: 500;
     border: 2px solid transparent;
     background: #0080C8;
     border-radius: 10px;
     color: #ffffff;
     cursor: pointer;
-    display: grid;
     place-items: center;
 }
 
 button.light {
-    height: 40px;
-    width: 134px;
-    border: 2px solid transparent;
+    padding: 10px 47px;
     background: #0080C81A;
-    border-radius: 10px;
     color: #0080C8;
 }
 
-button:hover,
-.pseudo-btn:hover {
+button:hover {
     border: 2px solid #F6BC25;
     transition: border 0.5s;
 }
@@ -67,6 +61,7 @@ header {
 
 header .menu_btns {
     display: flex;
+    justify-content: space-between;
     gap: 20px;
 }
 
@@ -101,7 +96,7 @@ main p {
     font-size: 20px;
 }
 
-.about-item {
+.about_item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,19 +108,19 @@ main p {
     padding: 20px;
 }
 
-.about-item span,
-.about-item p {
+.about_item span,
+.about_item p {
     color: #0080c8;
 }
 
-.about-item span {
+.about_item span {
     font-weight: 600;
     font-size: 82px;
     line-height: 105%;
     text-align: center;
 }
 
-.about-item p {
+.about_item p {
     font-weight: 400;
     font-size: 20px;
     line-height: 140%;
@@ -133,16 +128,16 @@ main p {
     max-width: 12vw;
 }
 
-.about-company img {
+.about_company img {
     width: calc(100%);
     border-radius: 34px;
 }
 
-.our-principles {
+.our_principles {
     margin-top: 60px;
 }
 
-.our-principles h1 {
+.our_principles h1 {
     margin-bottom: 20px;
 }
 
@@ -152,32 +147,32 @@ main p {
     gap: 20px;
 }
 
-.principles-item {
+.principles_item {
     padding: 24px 24px 36px;
     background: #ffffff;
     border-radius: 24px;
 }
 
-.principles-item img {
+.principles_item img {
     margin-bottom: 24px;
 }
 
-.principles-item h2 {
+.principles_item h2 {
     color: #0080c8;
     font-family: "Wix Madefor Display", sans-serif;
     font-weight: 500;
 }
 
-.principles-item p {
+.principles_item p {
     font-family: "Wix Madefor Display", sans-serif;
     font-weight: 400;
 }
 
-.our-tools {
+.our_tools {
     margin-top: 60px;
 }
 
-.our-tools h1 {
+.our_tools h1 {
     margin-bottom: 20px;
 }
 
@@ -188,108 +183,108 @@ main p {
     gap: 20px;
 }
 
-.tools-item {
+.tools_item {
     background: #ffffff;
     border-radius: 24px;
     padding: 24px 24px 36px;
 }
 
-.tools-item:nth-child(1) {
+.tools_item:nth-child(1) {
     grid-area: a;
 }
 
-.tools-item:nth-child(2) {
+.tools_item:nth-child(2) {
     grid-area: b;
 }
 
-.tools-item:nth-child(3) {
+.tools_item:nth-child(3) {
     grid-area: c;
 }
 
-.tools-item:nth-child(4) {
+.tools_item:nth-child(4) {
     grid-area: d;
 }
 
-.tools-item:nth-child(5) {
+.tools_item:nth-child(5) {
     grid-area: e;
 }
 
-.our-advantages {
+.our_advantages {
     margin-top: 60px;
 }
 
-.our-advantages h1 {
+.our_advantages h1 {
     margin-bottom: 20px;
 }
 
-.our-advantages h2 {
+.our_advantages h2 {
     font-weight: 600;
     font-size: 32px;
     line-height: 120%;
 }
 
-.our-advantages p {
+.our_advantages p {
     font-weight: 400;
     font-size: 24px;
     line-height: 140%;
 }
 
-.advantages-item {
+.advantages_item {
     display: flex;
     justify-content: space-between;
     gap: 20px;
     margin-bottom: 20px;
 }
 
-.advantages-item > img {
+.advantages_item > img {
     width: calc(50%);
     border-radius: 34px;
 }
 
-.advantages-item:nth-child(odd) {
+.advantages_item:nth-child(odd) {
     flex-direction: row-reverse;
 }
 
-.advantages-item:nth-child(odd) div h2,
-.advantages-item:nth-child(odd) div p {
+.advantages_item:nth-child(odd) div h2,
+.advantages_item:nth-child(odd) div p {
     text-align: end;
 }
 
-.advantages-item:last-child {
+.advantages_item:last-child {
     margin-bottom: 0;
 }
 
-.advantages-item div {
+.advantages_item div {
     align-content: center;
 }
 
-.advantages-item h1 {
+.advantages_item h1 {
     font-weight: 600;
 }
 
-.vertical-divider {
+.vertical_divider {
     background: #0080C8;
     align-content: center;
     height: 40px;
     width: 1px;
 }
 
-.admission-to-team {
+.admission_to_team {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 60px;
 }
 
-.admission-to-team h1 {
+.admission_to_team h1 {
     margin-bottom: 20px;
 }
 
-.admission-item > * {
+.admission_item > * {
     display: block;
 }
 
-.admission-item .stage {
+.admission_item .stage {
     color: #0080c8;
     font-weight: 700;
     font-size: 40px;
@@ -298,7 +293,7 @@ main p {
     padding-bottom: 20px;
 }
 
-.admission-item .name-stage {
+.admission_item .name_stage {
     font-weight: 500;
     font-size: 24px;
     line-height: 140%;
@@ -306,14 +301,14 @@ main p {
     color: #0080C8;
 }
 
-.admission-item p {
+.admission_item p {
     font-weight: 400;
     font-size: 20px;
     line-height: 140%;
     text-align: center;
 }
 
-.admission-item {
+.admission_item {
     max-width: 40vw;
     border-radius: 34px;
     border: 1px solid #0080C8;
@@ -342,11 +337,11 @@ main p {
 
 /*Our vacancies*/
 
-.our-vacancies h1 {
+.our_vacancies h1 {
     margin-bottom: 20px;
 }
 
-.our-vacancies nav {
+.our_vacancies nav {
     display: flex;
     background: #ffffff;
     padding: 10px;
@@ -355,7 +350,7 @@ main p {
     margin-bottom: 20px;
 }
 
-.our-vacancies nav button {
+.our_vacancies nav button {
     width: fit-content;
     background: #F4F6F8;
     color: #7A7B7C;
@@ -363,7 +358,7 @@ main p {
     padding-left: 20px;
 }
 
-.our-vacancies ul {
+.our_vacancies ul {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -372,7 +367,7 @@ main p {
     padding: 0;
 }
 
-.vacancies-item {
+.vacancies_item {
     list-style: none;
     padding: 24px;
     border-radius: 24px;
@@ -384,7 +379,7 @@ main p {
     gap: 40px;
 }
 
-.vacancies-item h2 {
+.vacancies_item h2 {
     height: 40%;
     font-weight: 600;
     font-size: 24px;
@@ -392,7 +387,7 @@ main p {
 
 }
 
-.vacancies-item p {
+.vacancies_item p {
     align-content: center;
     margin: 0;
     font-weight: 600;
@@ -401,7 +396,7 @@ main p {
 
 }
 
-.vacancies-item div {
+.vacancies_item div {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -409,13 +404,13 @@ main p {
     justify-content: space-between;
 }
 
-.vacancies-item button {
+.vacancies_item button {
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
 }
 
-.not-find-vacancies {
+.not_find_vacancies {
     margin-left: -80px;
     margin-right: -80px;
     margin-top: 60px;
@@ -427,7 +422,7 @@ main p {
     background: linear-gradient(90deg, #B9E6FF 0%, #E7F7FF 100%);
 }
 
-.not-find-vacancies .description {
+.not_find_vacancies .description {
     width: calc(50%);
     display: flex;
     flex-direction: column;
@@ -435,28 +430,28 @@ main p {
     gap: 20px;
 }
 
-.not-find-vacancies .description h1 {
+.not_find_vacancies .description h1 {
     font-weight: 600;
     font-size: 48px;
     line-height: 120%;
     color: #0080C8;
 }
 
-.not-find-vacancies .description p {
+.not_find_vacancies .description p {
     font-weight: 400;
     font-size: 24px;
     line-height: 140%;
     color: #23273D;
 }
 
-.form-for-send-cv {
+.form_for_send_cv {
     background: #ffffff;
     padding: 24px;
     width: calc(50%);
     border-radius: 34px;
 }
 
-.form-for-send-cv label,
+.form_for_send_cv label,
 .send_cv label {
     margin-bottom: 8px;
     font-weight: 600;
@@ -464,12 +459,12 @@ main p {
     line-height: 18px;
 }
 
-.form-for-send-cv label span,
+.form_for_send_cv label span,
 .send_cv label span {
     color: #1182C2;
 }
 
-.form-for-send-cv input,
+.form_for_send_cv input,
 .send_cv input {
     box-sizing: border-box;
     height: 48px;
@@ -479,18 +474,18 @@ main p {
     margin-bottom: 20px;
 }
 
-.form-for-send-cv .resume input,
+.form_for_send_cv .resume input,
 .send_cv .resume input {
     margin-bottom: 8px;
 }
 
-.form-for-send-cv input:focus,
+.form_for_send_cv input:focus,
 .send_cv input:focus {
     outline: none;
     border: 1px solid #0080C8;
 }
 
-.form-for-send-cv input,
+.form_for_send_cv input,
 .send_cv input:focus {
     font-weight: 400;
     font-size: 16px;
@@ -498,7 +493,7 @@ main p {
     vertical-align: middle;
 }
 
-.form-for-send-cv .name,
+.form_for_send_cv .name,
 .send_cv .name {
     display: flex;
     flex-direction: row;
@@ -506,16 +501,16 @@ main p {
     gap: 20px;
 }
 
-.form-for-send-cv .name div,
+.form_for_send_cv .name div,
 .send_cv .name div {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.form-for-send-cv .phone,
-.form-for-send-cv .email,
-.form-for-send-cv .resume,
+.form_for_send_cv .phone,
+.form_for_send_cv .email,
+.form_for_send_cv .resume,
 .send_cv .phone,
 .send_cv .email,
 .send_cv .resume {
@@ -524,13 +519,13 @@ main p {
     justify-content: space-between;
 }
 
-/*.form-for-send-cv #send-cv {*/
+/*.form_for_send_cv #send-cv {*/
 /*    height: 156px;*/
 /*    width: 100%;*/
 /*}*/
 
-.form-for-send-cv .area-to-send-cv,
-.send_cv .area-to-send-cv {
+.form_for_send_cv .area_to_send_cv,
+.send_cv .area_to_send_cv {
     box-sizing: border-box;
     height: 156px;
     width: 100%;
@@ -544,12 +539,12 @@ main p {
     border: 1px solid #E2E6ED;
 }
 
-.form-for-send-cv .area-to-send-cv span,
-.send_cv .area-to-send-cv span {
+.form_for_send_cv .area_to_send_cv span,
+.send_cv .area_to_send_cv span {
     color: #878992;
 }
 
-.form-for-send-cv button,
+.form_for_send_cv button,
 .send_cv button {
     height: 56px;
     width: 100%;
@@ -660,7 +655,6 @@ main p {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 588px;
-    max-width: 90vw;
     background: white;
     border-radius: 24px;
     padding: 24px;
@@ -690,7 +684,7 @@ main p {
     padding-bottom: 50px;
 }
 
-.header-controls {
+.header_controls {
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -705,7 +699,7 @@ main p {
     align-items: center;
 }
 
-.header-controls a img {
+.header_controls a img {
     width: 24px;
     height: 24px;
 }
@@ -753,11 +747,6 @@ main p {
     opacity: 1;
 }
 
-.overlay-close-area {
-    position: absolute;
-    inset: 0;
-}
-
 .overlay {
     visibility: hidden;
     position: fixed;
@@ -774,16 +763,16 @@ main p {
 
 /*Navigation*/
 
-.tab_content {
+.nav_for_tabs {
     display: flex;
     flex-direction: row;
 }
 
-#about-company {
+#tab_about_company {
     display: none;
 }
 
-#vacancies {
+#tab_vacancies {
     display: none;
 }
 
@@ -791,12 +780,12 @@ main p {
     display: none;
 }
 
-#about-company:target {
+#tab_about_company:target {
     display: block;
     opacity: 1;
 }
 
-#vacancies:target {
+#tab_vacancies:target {
     display: block;
     opacity: 1;
 }
@@ -813,15 +802,15 @@ main p {
     transition: all 0.3s ease;
 }
 
-.btn-about-company {
+.btn_about_company {
     border-radius: 24px 0 0 24px;
 }
 
-.btn-vacancies {
+.btn_vacancies {
     border-radius: 0 24px 24px 0;
 }
 
-#selected_vacancy:target ~ .tab_content {
+#selected_vacancy:target ~ .nav_for_tabs {
     display: none;
 }
 
@@ -836,18 +825,18 @@ footer {
     justify-content: space-between;
 }
 
-footer .about-company img {
+footer .about_company img {
     width: calc(50%);
     border-radius: 0;
 }
 
-footer .about-company {
+footer .about_company {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-footer .about-company span {
+footer .about_company span {
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
