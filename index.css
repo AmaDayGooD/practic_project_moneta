@@ -768,26 +768,16 @@ main p {
     flex-direction: row;
 }
 
-#tab_about_company {
+.tab_content {
     display: none;
 }
 
-#tab_vacancies {
-    display: none;
-}
-
-#selected_vacancy {
-    display: none;
-}
-
-#tab_about_company:target {
+.tab_content:target {
     display: block;
-    opacity: 1;
 }
 
-#tab_vacancies:target {
+.tab_content:not(:has(.tab_content:target)) .tab_content:first-child {
     display: block;
-    opacity: 1;
 }
 
 #selected_vacancy:target {
