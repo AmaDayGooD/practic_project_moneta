@@ -1,0 +1,140 @@
+.title_vacancy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.title_vacancy div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.name_vacancy {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 120%;
+    margin: 0;
+}
+
+.btn_respond {
+    height: 56px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    padding-left: 32px;
+    padding-right: 32px;
+    width: fit-content;
+}
+
+.title_vacancy div button {
+    background: transparent;
+    width: fit-content;
+}
+
+.title_vacancy div button:hover {
+    border: 2px solid transparent;
+}
+
+.info_vacancy {
+    margin-bottom: 32px;
+}
+
+.info_vacancy ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info_vacancy strong {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.info_vacancy span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.info_vacancy,
+.requirements_vacancy {
+    margin-bottom: 32px;
+}
+
+.requirements_vacancy h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+
+.requirements_vacancy li {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.offer h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+
+.offer li {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.offer p,
+.description_vacancy p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+@media (max-width: 960px) {
+    .name_vacancy {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 120%;
+        margin: 0;
+    }
+
+    .btn-respond {
+        height: 44px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        padding-left: 32px;
+        padding-right: 32px;
+        width: fit-content;
+    }
+
+}
+
+@media (max-width: 570px) {
+    .title_vacancy {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+    }
+
+    .title_vacancy div {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .title_vacancy .btn_respond {
+        width: 100%;
+        margin-top: 8px;
+    }
+}

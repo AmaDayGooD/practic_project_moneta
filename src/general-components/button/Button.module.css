@@ -1,0 +1,32 @@
+button:focus {
+    outline: none;
+}
+
+button {
+    height: 40px;
+    width: 134px;
+    font-weight: 500;
+    border: 2px solid transparent;
+    background: #0080C8;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.button:hover {
+    border: 2px solid #F6BC25;
+    transition: border 0.5s;
+}
+
+.button--light {
+    height: 40px;
+    width: 134px;
+    border: 2px solid transparent;
+    background: #0080C81A;
+    border-radius: 10px;
+    color: #0080C8;
+}
