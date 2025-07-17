@@ -1,6 +1,6 @@
 import IMask from "imask";
 
-import backofficeIcon from './assets/icons/ic_back_office_vacancies.svg?url';
+import backofficeIcon from './assets/icons/ic_back_office_vacancies.svg';
 import technicalIcon from "./assets/icons/ic_technical_vacancies.svg";
 
 const tab_btn_container = document.querySelector("#tab");
