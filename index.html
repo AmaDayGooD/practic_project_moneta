@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" sizes="48x48" href="https://www.moneta.ru/info/public/logo/favicon_moneta_48.png">
+  <link rel="stylesheet" href="index.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap" rel="stylesheet">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Вакансии</title>
 </head>
@@ -10,148 +16,147 @@
 <body>
 <!--Header-->
 <header>
-  <div>
-    <div>
-      <img src="src/assets/icons/ic_moneta_full_blue_logo.svg" alt="Logo">
-    </div>
-    <div class="menu">
-      <div class="menu_content">
-        <nav class="menu_items">
-          <a href="#">Бизнесу</a>
-          <a href="#">Физлицам</a>
-          <a href="#">Документация</a>
-          <a href="#">О нас</a>
-          <a href="#">Контакты</a>
-        </nav>
-        <div class="menu_buttons">
-          <button>Вход</button>
-          <button>Регистрация</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Under Header-->
-  <div>
-    <img src="src/assets/cards/card_pay.svg" alt="Pay">
-    <img src="src/assets/cards/card_moneta.svg" alt="Coin">
-    <img src="src/assets/cards/card_router.svg" alt="Router">
-    <img src="src/assets/cards/card_qr_code.svg" alt="QR Code">
-    <img src="src/assets/cards/card_bank_card.svg" alt="Bank Card">
-    <img src="src/assets/cards/card_browser.svg" alt="Browser">
-    <img src="src/assets/cards/card_grocery_cart.svg" alt="Grocery Cart">
-    <img src="src/assets/cards/card_briefcase.svg" alt="Briefcase">
+  <img src="src/assets/icons/ic_moneta_full_blue_logo.svg" alt="Logo">
+  <nav class="menu_items">
+    <a href="#">Бизнесу</a>
+    <a href="#">Физлицам</a>
+    <a href="#">Документация</a>
+    <a href="#">О нас</a>
+    <a href="#">Контакты</a>
+  </nav>
+  <div class="menu_btns">
+    <button type="button" class="light">Вход</button>
+    <button type="button">Регистрация</button>
   </div>
 </header>
 
+<!--Under Header-->
+<img class="hero" src="src/assets/images/img_hero.png" alt="Pay">
 <main>
   <!--Navigation-->
-  <nav>
-    <button>О компании</button>
-    <button>Вакансии</button>
-  </nav>
+  <div class="nav_for_tabs">
+    <a href="#tab_about_company">
+      <button class="btn_about_company" type="button">О компании</button>
+    </a>
+    <a href="#tab_vacancies">
+      <button class="btn_vacancies" type="button">Вакансии</button>
+    </a>
+  </div>
 
   <!--Tab About company-->
-  <section class="about-company">
+  <section id="tab_about_company" class="tab_content">
     <!--What is a Moneta-->
-    <section>
+    <section class="about_company">
       <h1>Что такое Монета</h1>
       <p>Монета — аккредитованная финтех-компания из Йошкар-Олы. Мы помогаем бизнесу принимать, отправлять и учитывать
-        платежи. Закрываем весь цикл: процессинг, банковские расчёты, массовые выплаты, автоматизация платежей.</p>
-      <p>Наши клиенты — от стартапов и самозанятых до крупных компаний с миллионами операций в месяц. Мы берём на себя
+        платежи. Закрываем весь цикл: процессинг, банковские расчёты, массовые выплаты, автоматизация
+        платежей.<br><br>Наши клиенты — от стартапов и самозанятых до крупных компаний с миллионами операций в месяц.
+        Мы берём на себя
         сложную работу с деньгами, чтобы клиенты могли спокойно развивать бизнес.</p>
-      <div>
-        <span>250</span>
-        <span>сотрудников по всему миру</span>
-      </div>
-      <div>
-        <span>20</span>
-        <span>лет работаем в финтехе</span>
-      </div>
-      <div>
-        <span>10к</span>
-        <span>компаний-клиентов</span>
-      </div>
-      <div>
-        <span>4</span>
-        <span>комфортных офиса</span>
-      </div>
+
+      <section class="about">
+        <div class="about_item">
+          <span>250</span>
+          <p>сотрудников по всему миру</p>
+        </div>
+        <div class="about_item">
+          <span>20</span>
+          <p>лет работаем в финтехе</p>
+        </div>
+        <div class="about_item">
+          <span>10к</span>
+          <p>компаний-клиентов</p>
+        </div>
+        <div class="about_item">
+          <span>4</span>
+          <p>комфортных офиса</p>
+        </div>
+      </section>
       <img src="src/assets/images/img_moneta_team.png" alt="Moneta team">
     </section>
 
     <!--Our principles-->
-    <section>
+    <section class="our_principles">
       <h1>Наши принципы</h1>
-      <div>
-        <img src="src/assets/icons/ic_cloud_sun.svg" alt="Cloud">
-        <h2>Ценим баланс и комфорт</h2>
-        <p>Мы уважаем твоё личное время и стремимся создать условия, где ты можешь работать эффективно. У нас нет
-          тотального
-          контроля — мы доверяем тебе и ценим результат, а не количество проведённых за компьютером минут.</p>
-      </div>
-      <div>
-        <img src="src/assets/icons/ic_heart.svg" alt="Heart">
-        <h2>Слышим мнение каждого</h2>
-        <p>У нас ценят инициативу и идеи, ведь твоя экспертиза может изменить продукт и даже компанию. Мы даём
-          пространство
-          для реализации идей каждому — от стажёра до руководителя.</p>
-      </div>
-      <div>
-        <img src="src/assets/icons/ic_star.svg" alt="Star">
-        <h2>Избегаем барьеров</h2>
-        <p>Мы стараемся избегать лишней бюрократии: если нужно что‑то решить, то не требуем горы документов. А если
-          понадобится помощь, то коллеги всегда поддержат и подскажут решение.</p>
-      </div>
-      <div>
-        <img src="src/assets/icons/ic_caret_double_up.svg" alt="Double arrow up">
-        <h2>Растим профессионалов</h2>
-        <p>Мы оплачиваем курсы и тренинги, проводим воркшопы и даём возможность работать над крутыми проектами. Расти
-          как
-          специалист или руководитель — выбор за тобой.</p>
+      <div class="principles">
+        <div class="principles_item">
+          <img src="src/assets/icons/ic_cloud_sun.svg" alt="Cloud">
+          <h2>Ценим баланс и комфорт</h2>
+          <p>Мы уважаем твоё личное время и стремимся создать условия, где ты можешь работать эффективно. У нас нет
+            тотального
+            контроля — мы доверяем тебе и ценим результат, а не количество проведённых за компьютером минут.</p>
+        </div>
+        <div class="principles_item">
+          <img src="src/assets/icons/ic_heart.svg" alt="Heart">
+          <h2>Слышим мнение каждого</h2>
+          <p>У нас ценят инициативу и идеи, ведь твоя экспертиза может изменить продукт и даже компанию. Мы даём
+            пространство
+            для реализации идей каждому — от стажёра до руководителя.</p>
+        </div>
+        <div class="principles_item">
+          <img src="src/assets/icons/ic_star.svg" alt="Star">
+          <h2>Избегаем барьеров</h2>
+          <p>Мы стараемся избегать лишней бюрократии: если нужно что‑то решить, то не требуем горы документов. А если
+            понадобится помощь, то коллеги всегда поддержат и подскажут решение.</p>
+        </div>
+        <div class="principles_item">
+          <img src="src/assets/icons/ic_caret_double_up.svg" alt="Double arrow up">
+          <h2>Растим профессионалов</h2>
+          <p>Мы оплачиваем курсы и тренинги, проводим воркшопы и даём возможность работать над крутыми проектами.
+            Расти
+            как
+            специалист или руководитель — выбор за тобой.</p>
+        </div>
       </div>
     </section>
 
     <!--Our tools-->
-    <section>
+    <section class="our_tools">
       <h1>Какие инструменты мы создаем</h1>
-      <div>
-        <img src="src/assets/icons/ic_online_wallet.svg" alt="Online wallet">
-        <h2>Приём онлайн-платежей</h2>
-        <p>Подключаем оплату банковскими картами, Системой быстрых платежей (СБП), электронными кошельками и другими
-          методами. Клиенты платят так, как им удобно, а бизнес получает деньги без задержек.</p>
-      </div>
-      <div>
-        <img src="src/assets/icons/ic_receipt.svg" alt="Receipt">
-        <h2>Работа с маркетплейсами</h2>
-        <p>Предоставляем маркетплейсам платёжные решения: создаём платёжные формы для сайтов, настраиваем приём платежей
-          от
-          клиентов, распределяем деньги между продавцами и обеспечиваем хранение средств на кошельке маркетплейса.</p>
-      </div>
-      <div>
-        <img src="src/assets/icons/ic_credit_card.svg" alt="Credit card">
-        <h2>Регулярные платежи</h2>
-        <p>Предоставляем автоматические списания для подписок, аренды и других регулярных услуг. Это экономит время
-          клиентов
-          и удерживает их.</p>
-      </div>
-      <div>
-        <img src="src/assets/icons/ic_wallet.svg" alt="Wallet">
-        <h2>Встроенные кошельки на сайте</h2>
-        <p>Подключаем оплату банковскими картами, Системой быстрых платежей (СБП), электронными кошельками и другими
-          методами. Клиенты платят так, как им удобно, а бизнес получает деньги без задержек.</p>
-      </div>
-      <div>
-        <img src="src/assets/icons/ic_identification_card.svg" alt="Identification card">
-        <h2>Мультиэквайринг</h2>
-        <p>Даём возможность работать с несколькими платёжными системами одновременно и получать платежи от клиентов на
-          счета
-          разных банков. Это снижает риски и повышает надёжность платежей.</p>
+      <div class="tools">
+        <div class="tools_item">
+          <img src="src/assets/icons/ic_online_wallet.svg" alt="Online wallet">
+          <h2>Приём онлайн-платежей</h2>
+          <p>Подключаем оплату банковскими картами, Системой быстрых платежей (СБП), электронными кошельками и другими
+            методами. Клиенты платят так, как им удобно, а бизнес получает деньги без задержек.</p>
+        </div>
+        <div class="tools_item">
+          <img src="src/assets/icons/ic_receipt.svg" alt="Receipt">
+          <h2>Работа с маркетплейсами</h2>
+          <p>Предоставляем маркетплейсам платёжные решения: создаём платёжные формы для сайтов, настраиваем приём
+            платежей
+            от
+            клиентов, распределяем деньги между продавцами и обеспечиваем хранение средств на кошельке
+            маркетплейса.</p>
+        </div>
+        <div class="tools_item">
+          <img src="src/assets/icons/ic_credit_card.svg" alt="Credit card">
+          <h2>Регулярные платежи</h2>
+          <p>Предоставляем автоматические списания для подписок, аренды и других регулярных услуг. Это экономит время
+            клиентов
+            и удерживает их.</p>
+        </div>
+        <div class="tools_item">
+          <img src="src/assets/icons/ic_wallet.svg" alt="Wallet">
+          <h2>Встроенные кошельки на сайте</h2>
+          <p>Разрабатываем кошельки, которые можно встроить прямо на сайт. Это удобно для клиентов и повышает их
+            лояльность.</p>
+        </div>
+        <div class="tools_item">
+          <img src="src/assets/icons/ic_identification_card.svg" alt="Identification card">
+          <h2>Мультиэквайринг</h2>
+          <p>Даём возможность работать с несколькими платёжными системами одновременно и получать платежи от клиентов
+            на
+            счета
+            разных банков. Это снижает риски и повышает надёжность платежей.</p>
+        </div>
       </div>
     </section>
 
     <!--Our advantages-->
-    <section>
+    <section class="our_advantages">
       <h1>Наши преимущества</h1>
-      <div>
+      <div class="advantages_item">
         <div>
           <h2>Комфортные условия работы</h2>
           <p>Современные офисы в Йошкар-Оле и Москве с удобными рабочими местами или возможность работать из дома —
@@ -161,15 +166,15 @@
         <img src="src/assets/images/img_working_conditions.png" alt="Working conditions">
       </div>
 
-      <div>
-        <img src="src/assets/images/img_dev_and_supp.png" alt="Developing and supporting">
+      <div class="advantages_item">
         <div>
           <h2>Развитие и поддержка</h2>
           <p>Мы помогаем расти: оплачиваем обучение, проводим воркшопы и предоставляем наставников.</p>
         </div>
+        <img src="src/assets/images/img_dev_and_supp.png" alt="Developing and supporting">
       </div>
 
-      <div>
+      <div class="advantages_item">
         <div>
           <h2>Влияние на продукт</h2>
           <p>Твои идеи могут изменить наш продукт и повлиять на жизнь тысяч пользователей. Мы ценим инициативу и даём
@@ -178,37 +183,37 @@
         <img src="src/assets/images/img_influence.png" alt="Influence">
       </div>
 
-      <div>
-        <img src="src/assets/images/img_health_care.png" alt="Health care">
+      <div class="advantages_item">
         <div>
           <h2>Забота о здоровье и комфорте</h2>
           <p>Все плюсы аккредитованной IT-компании, ДМС, компенсация занятий спортом и обучения — мы создаём условия,
-            чтобы
-            ты чувствовал себя хорошо и мог сосредоточиться на важных задачах. А если хочешь прокачать английский, у нас
-            есть бесплатные групповые занятия по уровням.</p>
+            чтобы ты чувствовал себя хорошо и мог сосредоточиться на важных задачах. А если хочешь прокачать
+            английский, у нас есть бесплатные групповые занятия по уровням.</p>
         </div>
+        <img src="src/assets/images/img_health_care.png" alt="Health care">
       </div>
 
-      <div>
+      <div class="advantages_item">
         <div>
           <h2>Открытая культура</h2>
-          <p>У нас нет строгой иерархии — только неформальная атмосфера, где каждый может высказаться и быть услышанным.
+          <p>У нас нет строгой иерархии — только неформальная атмосфера, где каждый может высказаться и быть
+            услышанным.
             Мы
             общаемся на равных и поддерживаем друг друга.</p>
         </div>
         <img src="src/assets/images/img_open_culture.png" alt="Open culture">
       </div>
 
-      <div>
-        <img src="src/assets/images/img_flexibility.png" alt="Flexibility">
+      <div class="advantages_item">
         <div>
           <h2>Гибкость и баланс</h2>
           <p>Гибкий график и возможность подстроить рабочий день под свои нужды — мы ценим твоё время и личное
             пространство.</p>
         </div>
+        <img src="src/assets/images/img_flexibility.png" alt="Flexibility">
       </div>
 
-      <div>
+      <div class="advantages_item">
         <div>
           <h2>Команда и увлечения</h2>
           <p>Корпоративные мероприятия, клубы по интересам и возможность находить единомышленников — у нас работают не
@@ -220,50 +225,51 @@
     </section>
 
     <!--How are we accepted into the team-->
-    <section>
+    <section class="admission_to_team">
       <h1>Как мы принимаем в команду</h1>
-      <div>
-        <span>1</span>
-        <span>Онлайн-встреча</span>
+      <div class="admission_item">
+        <span class="stage">1</span>
+        <span class="name_stage">Онлайн-встреча</span>
         <p>Короткий разговор по видеосвязи, чтобы обсудить твои ожидания и наши возможности. Узнаем друг друга лучше и
           поймём, есть ли точки соприкосновения.</p>
       </div>
-
-      <div>
-        <span>2</span>
-        <span>Тестовое задание или техническое интервью</span>
+      <div class="vertical_divider"></div>
+      <div class="admission_item">
+        <span class="stage">2</span>
+        <span class="name_stage">Тестовое задание или техническое интервью</span>
         <p>В зависимости от вакансии мы проводим техническое интервью с экспертами или предлагаем выполнить тестовое
           задание. Это позволяет нам лучше оценить ваши навыки, а тебе — познакомиться с нашими требованиями</p>
       </div>
-
-      <div>
-        <span>3</span>
-        <span>Финальное собеседование </span>
+      <div class="vertical_divider"></div>
+      <div class="admission_item">
+        <span class="stage">3</span>
+        <span class="name_stage">Финальное собеседование </span>
         <p>Это возможность познакомиться с командой — будущими коллегами, наставником и руководителем. Ты сможешь
           обсудить
           задачи, почувствовать атмосферу и решить, комфортно ли будет работать вместе.</p>
       </div>
-
-      <div>
-        <span>4</span>
-        <span>Пребординг</span>
-        <p>В оффере пропишем ожидания от роли, условия оплаты, бонусы, задачи и закреплённого наставника. Также поможем
+      <div class="vertical_divider"></div>
+      <div class="admission_item">
+        <span class="stage">4</span>
+        <span class="name_stage">Пребординг</span>
+        <p>В оффере пропишем ожидания от роли, условия оплаты, бонусы, задачи и закреплённого наставника. Также
+          поможем
           с
           оформлением, выдадим технику, настроим доступы и поддержим в период адаптации.</p>
       </div>
     </section>
 
     <!--Banner-->
-    <section>
+    <section class="banner">
       <span>Стань частью команды Монеты уже сейчас</span>
       <img src="src/assets/icons/ic_smile_coin.svg" alt="Smile coin">
     </section>
   </section>
 
   <!--Tab vacancies-->
-  <section class="vacancies">
-    <section>
-      <h1>Наши Вакансии</h1>
+  <section id="tab_vacancies" class="tab_content">
+    <section class="our_vacancies">
+      <h1>Наши вакансии</h1>
       <nav>
         <button class="all_vacancies">Все</button>
         <button class="technical_vacancies">Техническое направление</button>
@@ -271,33 +277,80 @@
       </nav>
 
       <ul>
-        <li>
+        <li class="vacancies_item">
           <img src="src/assets/icons/ic_back_office_vacancies.svg" alt="Office vacancies">
           <h2>Менеджер по продажам</h2>
           <div>
-            <p>117 000 - 120 000</p>
-            <button>Подробнее</button>
+            <p>117 000 — 180 000₽</p>
+            <a href="#selected_vacancy">
+              <button>Подробнее</button>
+            </a>
           </div>
         </li>
-        <li>
+        <li class="vacancies_item">
           <img src="src/assets/icons/ic_technical_vacancies.svg" alt="Technical vacancies">
           <h2>Системный администратор</h2>
           <div>
-            <p>117 000 - 120 000</p>
+            <p>117 000 — 180 000₽</p>
+            <a href="#selected_vacancy">
+              <button>Подробнее</button>
+            </a>
+          </div>
+        </li>
+        <li class="vacancies_item">
+          <img src="src/assets/icons/ic_technical_vacancies.svg" alt="Technical vacancies">
+          <h2>DevOps инженер (Middle+/ Senior)</h2>
+          <div>
+            <p>117 000 — 180 000₽</p>
+            <a href="#selected_vacancy">
+              <button>Подробнее</button>
+            </a>
+          </div>
+        </li>
+        <li class="vacancies_item">
+          <img src="src/assets/icons/ic_technical_vacancies.svg" alt="Technical vacancies">
+          <h2>Системный администратор</h2>
+          <div>
+            <p>117 000 — 180 000₽</p>
+            <button>Подробнее</button>
+          </div>
+        </li>
+        <li class="vacancies_item">
+          <img src="src/assets/icons/ic_technical_vacancies.svg" alt="Technical vacancies">
+          <h2>Системный администратор</h2>
+          <div>
+            <p>117 000 — 180 000₽</p>
+            <button>Подробнее</button>
+          </div>
+        </li>
+        <li class="vacancies_item">
+          <img src="src/assets/icons/ic_back_office_vacancies.svg" alt="Office vacancies">
+          <h2>Менеджер по продажам</h2>
+          <div>
+            <p>117 000 — 180 000₽</p>
+            <button>Подробнее</button>
+          </div>
+        </li>
+        <li class="vacancies_item">
+          <img src="src/assets/icons/ic_technical_vacancies.svg" alt="Technical vacancies">
+          <h2>Системный администратор</h2>
+          <div>
+            <p>117 000 — 180 000₽</p>
             <button>Подробнее</button>
           </div>
         </li>
       </ul>
     </section>
 
-    <section>
-      <div>
+    <section class="not_find_vacancies">
+      <div class="description">
         <h1>Хочешь работать с нами, но не нашлось подходящей вакансии?</h1>
-        <p>Отправь нам своё резюме через форму — мы обязательно рассмотрим твою кандидатуру и найдём для тебя интересное
+        <p>Отправь нам своё резюме через форму — мы обязательно рассмотрим твою кандидатуру и найдём для тебя
+          интересное
           направление</p>
       </div>
-      <form>
-        <div>
+      <form class="form_for_send_cv">
+        <div class="name">
           <div>
             <label for="first_name"><span>*</span> Имя</label>
             <input id="first_name" type="text" placeholder="Иван" required>
@@ -307,36 +360,42 @@
             <input id="last_name" type="text" placeholder="Иванов" required>
           </div>
         </div>
-        <div>
+        <div class="phone">
           <label for="phone"><span>*</span> Номер телефона</label>
           <input id="phone" type="tel" placeholder="+7 (999) 999-99-99" required>
         </div>
-        <div>
+        <div class="email">
           <label for="mail"><span>*</span> Почта</label>
           <input id="mail" type="email" placeholder="ivanovivan@mail.com" required>
         </div>
-        <div>
+        <div class="resume">
           <label for="resume_file"><span>*</span> Ссылка на резюме или файл (pdf/doc)</label>
           <input id="resume_file" type="url" placeholder="ссылка на резюме">
         </div>
-        <div>
-          <label>
-            Загрузить файл
-            <input type="file" accept=".pdf,.doc,.docx" />
-          </label>
+        <div class="area_to_send_cv">
+          <img src="src/assets/icons/ic_upload_simple.svg" alt="Upload CV">
+          <span>загрузить файл</span>
+          <!-- <input id="send-cv" type="file" accept=".pdf,.doc,.docx" />-->
         </div>
         <button type="submit">Отправить</button>
       </form>
     </section>
   </section>
 
-  <section class="selected_vacancy">
-    <section>
+  <!--  Tab selected vacancy-->
+  <section id="selected_vacancy">
+    <section class="title_vacancy">
       <div>
-        <img src="src/assets/icons/ic_left_arrow.svg" alt="Left arrow icon">
+        <a href="#tab_vacancies">
+          <img src="src/assets/icons/ic_left_arrow.svg" alt="Left arrow icon">
+        </a>
         <h1 class="title_vacancy">Системный администратор</h1>
-        <button>Откликнуться</button>
       </div>
+      <a class="open_dialog" href="#send_cv">
+        <button>Откликнуться</button>
+      </a>
+    </section>
+    <section class="info_vacancy">
       <ul>
         <li><strong>Заработная плата: </strong><span>от 117 000 до 180 000 ₽ за месяц, на руки</span></li>
         <li><strong>Опыт работы: </strong><span>3 - 6 лет</span></li>
@@ -345,7 +404,7 @@
         <li><strong>Рабочие часы: </strong><span>8</span></li>
       </ul>
     </section>
-    <section>
+    <section class="requirements_vacancy">
       <h2>Ожидания от кандидата:</h2>
       <ul>
         <li>Знание и понимание принципов работы сетевых протоколов (модель OSI)</li>
@@ -364,9 +423,9 @@
           криптографической защиты информации, банковскими приложениями
         </li>
       </ul>
-
     </section>
-    <section>
+
+    <section class="offer">
       <h2>Мы предлагаем:</h2>
       <ul>
         <li>Работу в аккредитованной IТ-компании</li>
@@ -386,27 +445,100 @@
     </section>
   </section>
 
+  <!--  Dialog send CV-->
+  <a href="#" class="overlay" id="send_cv"></a>
+  <div class="send_cv">
+    <div class="title">
+      <h1>Отклик на вакансию<br>Системный администратор</h1>
+      <a href="#">
+        <img src="src/assets/icons/ic_close.svg" alt="Close dialog">
+      </a>
+    </div>
+    <div class="name">
+      <div>
+        <label for="dialog_first_name"><span>*</span> Имя</label>
+        <input id="dialog_first_name" type="text" placeholder="Иван" required>
+      </div>
+      <div>
+        <label for="dialog_last_name"><span>*</span> Фамилия</label>
+        <input id="dialog_last_name" type="text" placeholder="Иванов" required>
+      </div>
+    </div>
+    <div class="phone">
+      <label for="dialog_phone"><span>*</span> Номер телефона</label>
+      <input id="dialog_phone" type="tel" placeholder="+7 (999) 999-99-99" required>
+    </div>
+    <div class="email">
+      <label for="dialog_mail"><span>*</span> Почта</label>
+      <input id="dialog_mail" type="email" placeholder="ivanovivan@mail.com" required>
+    </div>
+    <div class="resume">
+      <label for="dialog_resume_file"><span>*</span> Ссылка на резюме или файл (pdf/doc)</label>
+      <input id="dialog_resume_file" type="url" placeholder="ссылка на резюме">
+    </div>
+    <div class="area_to_send_cv">
+      <img src="src/assets/icons/ic_upload_simple.svg" alt="Upload CV">
+      <span>загрузить файл</span>
+      <!--<input id="send-cv" type="file" accept=".pdf,.doc,.docx" />-->
+    </div>
+    <a href="#sent_cv" class="close_btn">
+      <button type="submit">Отправить</button>
+    </a>
+  </div>
+
+  <!--  Dialog sent CV-->
+  <a href="#" class="overlay" id="sent_cv"></a>
+  <div class="sent_cv">
+    <div class="header_controls">
+      <a href="#" class="close_btn">
+        <img src="src/assets/icons/ic_close.svg" alt="Close dialog">
+      </a>
+    </div>
+    <div class="content">
+      <img src="src/assets/icons/ic_smile_circle.svg" alt="Smile circle">
+      <h1>Отклик отправлен!</h1>
+      <span>HR-менеджер скоро свяжется с вами</span>
+    </div>
+  </div>
+
+  <!--  Dialog already sent CV-->
+  <a href="#" class="overlay" id="already_sent_cv"></a>
+  <div class="already_sent_cv">
+    <div class="header_controls">
+      <a href="#" class="close_btn">
+        <img src="src/assets/icons/ic_close.svg" alt="Close dialog">
+      </a>
+    </div>
+    <div class="content">
+      <img src="src/assets/icons/ic_star_circle.svg" alt="Star circle">
+      <h1>Вы уже откликались на эту вакансию </h1>
+      <span>Повторите попытку позже</span>
+    </div>
+  </div>
 </main>
 <!--Footer-->
 <footer>
-  <div>
-    <img src="src/assets/icons/ic_moneta_full_blue_logo.svg" alt="logo">
-    <p>© 2005 — 2023 НКО «МОНЕТА» (ООО)</p>
+  <div class="about_company">
+    <a href="https://www.moneta.ru/">
+      <img src="src/assets/icons/ic_moneta_full_blue_logo.svg" alt="logo">
+    </a>
+    <span>© 2005 — 2023 НКО «МОНЕТА» (ООО)</span>
   </div>
   <nav>
     <ul>
-      <li><a href="#">О нас</a></li>
-      <li><a href="#">Бизнесу</a></li>
-      <li><a href="#">Физлицам</a></li>
+      <li><a href="https://www.moneta.ru/info/d/ru/public/about/index.htm">О нас</a></li>
+      <li><a href="https://www.moneta.ru/info/d/ru/public/merchants/index.htm">Бизнесу</a></li>
+      <li><a href="https://www.moneta.ru/info/d/ru/public/users/tariffs.htm">Физлицам</a></li>
     </ul>
     <ul>
-      <li><a href="#">Новости</a></li>
-      <li><a href="#">Контакты</a></li>
-      <li><a href="#">Вакансии</a></li>
+      <li><a href="https://www.moneta.ru/news.htm">Новости</a></li>
+      <li><a href="https://www.moneta.ru/info/d/ru/public/about/contacts.htm">Контакты</a></li>
+      <li><a href="https://yoshkar-ola.hh.ru/employer/5936246?hhtmFrom=vacancy">Вакансии</a></li>
     </ul>
     <ul>
+      <li><a href="#">Задать вопрос</a></li>
       <li><a href="#">FAQ</a></li>
-      <li><a href="#">Политика конфиденциальности</a></li>
+      <li><a href="#">Политика<br>конфиденциальности</a></li>
     </ul>
   </nav>
   <div>
