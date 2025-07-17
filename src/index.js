@@ -1,5 +1,8 @@
 import IMask from "imask";
 
+import backofficeIcon from './assets/icons/ic_back_office_vacancies.svg?url';
+import technicalIcon from "./assets/icons/ic_technical_vacancies.svg";
+
 const tab_btn_container = document.querySelector("#tab");
 const btn_about_company = document.querySelector("#btn-about-company");
 const btn_vacancies = document.querySelector("#btn-vacancies");
@@ -117,9 +120,7 @@ function renderListVacancies(vacancies) {
       li.className = "vacancies-item";
       li.setAttribute("data-id", vacancy.id);
 
-      const image = vacancy.department === "backoffice" ?
-        "src/assets/icons/ic_back_office_vacancies.svg" :
-        "src/assets/icons/ic_technical_vacancies.svg";
+      const image = vacancy.department === "backoffice" ? backofficeIcon : technicalIcon;
 
       const imageAlt = vacancy.department === "backoffice" ? "Бэк-офис" : "Техническое";
 
