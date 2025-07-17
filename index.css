@@ -403,6 +403,10 @@ main p {
     100% { transform: rotate(360deg); }
 }
 
+#show_more_btn {
+    margin: 20px auto;
+}
+
 .vacancies-item {
     list-style: none;
     padding: 24px;

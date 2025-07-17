@@ -8,6 +8,8 @@ const about_company = document.querySelector("#tab-about-company");
 const vacancies = document.querySelector("#tab-vacancies");
 const selected_vacancy = document.querySelector("#selected_vacancy");
 
+const show_more_btn = document.getElementById("show_more_btn");
+
 let chosen_vacancy = {};
 let allVacancies = [];
 
@@ -58,8 +60,14 @@ function hideAll() {
   selected_vacancy.classList.remove("active");
 }
 
-function getVacancies() {
-  const url = "https://learn-9fc9-git-main-imsokolovivs-projects.vercel.app/api/vacancies/list ";
+let currentPage = 1;
+const itemsPerPage = 9;
+let totalVacancies = 0;
+
+show_more_btn.addEventListener("click", ()=>loadMoreVacancies())
+
+function getVacancies(page = 1) {
+  const url = `https://learn-9fc9-git-main-imsokolovivs-projects.vercel.app/api/vacancies/list?page=${page}&limit=${itemsPerPage}`;
   const loader = document.getElementById("loader");
   const list = document.getElementById("vacancies-list");
 
@@ -74,8 +82,22 @@ function getVacancies() {
     })
     .then(data => {
       loader.style.display = "none";
-      allVacancies = data.data;
-      renderListVacancies(allVacancies);
+      totalVacancies = data.total;
+      const newVacancies = data.data;
+
+      if (page === 1) {
+        allVacancies = newVacancies;
+        renderListVacancies(allVacancies);
+      } else {
+        renderListVacancies(newVacancies);
+      }
+
+      if (allVacancies.length >= totalVacancies || newVacancies.length < itemsPerPage) {
+        show_more_btn.style.display = "none";
+      } else {
+        show_more_btn.style.display = "block";
+      }
+
     })
     .catch(error => {
       loader.style.display = "none";
@@ -120,6 +142,15 @@ function renderListVacancies(vacancies) {
     }
   });
 }
+
+function loadMoreVacancies() {
+  currentPage++;
+  getVacancies(currentPage);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  getVacancies(1);
+});
 
 function filterVacancies(category) {
   let filtered;
@@ -337,7 +368,6 @@ function validateForm(data, form, id_container, isLoadedFile) {
         if (localData.attempts >= 2) {
           openAlreadySentModal();
         } else {
-          // Можно отправлять снова (второй раз)
           saveLocalData(chosen_vacancy.id, {
             ...localData,
             attempts: localData.attempts + 1,
