@@ -330,14 +330,34 @@ function validateForm(data, form, id_container, isLoadedFile) {
   if (!isInvalid) {
     let localData = JSON.parse(getLocalData(chosen_vacancy.id));
 
-    if (localData !== null &&
-      id_container === "send_cv" &&
-      localData.id === chosen_vacancy.id &&
-      !isTwoWeeksPassed(localData.dataTime)
-    ) {
-      openAlreadySentModal();
+    if (localData !== null && id_container === "send_cv" && localData.id === chosen_vacancy.id) {
+      const isWithinTwoWeeks = !isTwoWeeksPassed(localData.dataTime);
+
+      if (isWithinTwoWeeks) {
+        if (localData.attempts >= 2) {
+          openAlreadySentModal();
+        } else {
+          // Можно отправлять снова (второй раз)
+          saveLocalData(chosen_vacancy.id, {
+            ...localData,
+            attempts: localData.attempts + 1,
+          });
+          openSendModal();
+        }
+      } else {
+        saveLocalData(chosen_vacancy.id, {
+          ...formValues,
+          ...chosen_vacancy,
+          attempts: 1,
+        });
+        openSendModal();
+      }
     } else {
-      saveLocalData(chosen_vacancy.id, { ...formValues, ...chosen_vacancy });
+      saveLocalData(chosen_vacancy.id, {
+        ...formValues,
+        ...chosen_vacancy,
+        attempts: 1,
+      });
       openSendModal();
     }
   }
