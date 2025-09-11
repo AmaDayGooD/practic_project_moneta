@@ -32,6 +32,14 @@
     color: #23273D;
 }
 
+.container_send_cv {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 24px;
+    width: 50%;
+    height: fit-content;
+}
+
 @media (max-width: 960px) {
     .not_find_vacancies {
         margin-left: -20px;
@@ -68,18 +76,6 @@
     }
 
     .container_send_cv {
-        background: #ffffff;
-        border-radius: 24px;
-        padding: 24px;
-        width: 100%;
-    }
-}
-
-@media (max-width: 570px) {
-    .container_send_cv {
-        background: #ffffff;
-        border-radius: 24px;
-        padding: 24px;
         width: 100%;
     }
 }

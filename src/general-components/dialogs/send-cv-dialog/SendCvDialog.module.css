@@ -4,9 +4,10 @@
     transform: translate(-50%, -50%);
     background: #ffffff;
     border-radius: 24px;
+    border: transparent;
     padding: 24px;
     width: 50%;
-    height: 100%;
+    height: fit-content;
 }
 
 @media (max-width: 960px) {
