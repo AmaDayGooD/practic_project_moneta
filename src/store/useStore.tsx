@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { VacancyItem } from "../types/Vacancy.ts";
 
 type Tab = "about" | "vacancies" | "selectedVacancy";
+type Filter = "all" | "developer" | "backoffice";
 
 export type Store = {
   activeTab: Tab;
@@ -14,6 +15,8 @@ export type Store = {
   setSentCvDialog: (sentDialog: boolean) => void;
   alreadySentDialog: boolean;
   setAlreadySentDialog: (alreadySentDialog: boolean) => void;
+  vacanciesFilter: Filter;
+  setVacanciesFilter: (selectedFilter: Filter) => void;
 };
 
 export const useStore = (): Store => {
@@ -22,6 +25,7 @@ export const useStore = (): Store => {
   const [sendCvDialog, setSendCvDialog] = useState<boolean>(false);
   const [sentCvDialog, setSentCvDialog] = useState<boolean>(false);
   const [alreadySentDialog, setAlreadySentDialog] = useState<boolean>(false);
+  const [vacanciesFilter, setVacanciesFilter] = useState<Filter>("all");
 
 
   return {
@@ -30,5 +34,6 @@ export const useStore = (): Store => {
     sendCvDialog, setSendCvDialog,
     sentCvDialog, setSentCvDialog,
     alreadySentDialog, setAlreadySentDialog,
+    vacanciesFilter, setVacanciesFilter
   };
 };

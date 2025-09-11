@@ -57,7 +57,7 @@ const ListVacancy: FC = () => {
     fetchVacancies(page);
   }, []);
 
-  const { setSelectedVacancy, setActiveTab } = useStoreContext();
+  const { setSelectedVacancy, setActiveTab, vacanciesFilter } = useStoreContext();
 
   const handleDetailClick = (vacancy: VacancyItem) => {
     setSelectedVacancy(vacancy);
@@ -67,16 +67,18 @@ const ListVacancy: FC = () => {
   return (
     <>
       <ul className={style.list_vacancies}>
-        {vacancies.map((vacancy: VacancyItem) => (
-          <li className={style.vacancies_item} key={vacancy.id}>
-            <img src={vacancy.department === 'backoffice' ? backOfficeVacancies : technicalVacancies} alt={vacancy.department} />
-            <h2>{vacancy.title}</h2>
-            <div>
-              <p>{vacancy.salary.from} - {vacancy.salary.to} {setCurrency(vacancy.salary.currency)}</p>
-              <Button className={style.details_btn} onClick={() => handleDetailClick(vacancy)} text={"Подробнее"}></Button>
-            </div>
-          </li>
-        ))}
+        {vacancies.filter((vacancy) => (vacanciesFilter == "all" || vacancy.department == vacanciesFilter))
+          .map((vacancy: VacancyItem) => (
+            <li className={style.vacancies_item} key={vacancy.id}>
+              <img src={vacancy.department === "backoffice" ? backOfficeVacancies : technicalVacancies}
+                   alt={vacancy.department} />
+              <h2>{vacancy.title}</h2>
+              <div>
+                <p>{vacancy.salary.from} - {vacancy.salary.to} {setCurrency(vacancy.salary.currency)}</p>
+                <Button className={style.details_btn} onClick={() => handleDetailClick(vacancy)} text={"Подробнее"}></Button>
+              </div>
+            </li>
+          ))}
       </ul>
 
       {loading && <Loader />}

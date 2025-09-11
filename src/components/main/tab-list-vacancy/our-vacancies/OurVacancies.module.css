@@ -21,6 +21,12 @@
     padding-left: 20px;
 }
 
+.our_vacancies nav button.active {
+    background: #DCEAF3;
+    color: #0080C8;
+    border: 1px solid #0080C8;
+}
+
 @media (max-width: 970px) {
     .our_vacancies nav {
         gap: 8px;
