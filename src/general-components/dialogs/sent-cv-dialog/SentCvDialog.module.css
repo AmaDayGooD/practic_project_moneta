@@ -1,0 +1,60 @@
+.btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    background: transparent;
+    width: fit-content;
+    height: fit-content;
+}
+
+.btn:hover {
+    border: 2px solid transparent;
+}
+
+.sent_cv {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+    width: 588px;
+    max-width: 90vw;
+    background: white;
+    border-radius: 24px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.header_controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 54px;
+    margin-top: 34px;
+}
+
+.content h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+}
+
+.content span {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 8px;
+}
+
